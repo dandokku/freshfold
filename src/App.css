@@ -21,7 +21,21 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white;
+  color: aquamarine;
+  color: #ffbd2f;
+  color: #f6f6e5;
+  color: pink;
+  color: #104795;
+  color: peachpuff;
+  color: rgb(223, 208, 194);
+  color: lightgray;
+  color: #34347C;
+  color: #E9B609;
+  color: #F4F4F4;
+  color: #f7cb39;
+  color: #817e7e;
+  color: #6e6868; */
 }
 
 .App-link {
