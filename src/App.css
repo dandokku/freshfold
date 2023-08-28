@@ -34,12 +34,13 @@
   color: #E9B609;
   color: #F4F4F4;
   color: #f7cb39;
-  color: #817e7e;
-  color: #6e6868; */
+  color: #141414;
+  color: #020202; */
 }
 
 .App-link {
-  color: #61dafb;
+  color: rgb(230, 230, 230);
+
 }
 
 @keyframes App-logo-spin {

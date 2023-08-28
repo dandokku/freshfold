@@ -8,7 +8,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   letter-spacing: 0.1px;
-  /* border: solid 1px red; */
+  transition: .5s ease-in;
 }
 
 body {
@@ -18,8 +18,111 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar-thumb{
+  background-color: rgb(183, 208, 171);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar{
+  background-color: #f6f1f1;
+  width: 10px;
+}
+
 
 @font-face {
   font-family: poppins;
   src: url("./Assets/Poppins/Poppins-Regular.ttf");
 }
+
+@font-face {
+  font-family: montserrat;
+  src: url("./Assets/Montserrat/Montserrat-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: sparkle;
+  src: url("./Assets/sparkle_3/Sparkle.ttf");
+}
+
+.logo{
+  font-family: poppins;
+  font-weight: 700;
+}
+
+
+/* .headerLower{
+  background-color: ;
+} */
+
+.active{
+  color: #34CCA1;
+  font-weight: 500;
+}
+
+
+
+.link{
+  color: #05010a ;
+}
+
+
+
+
+@keyframes ani {
+  from{
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+/* .textshadow{
+  text-shadow: #20d66c 4px 4px 5px;
+} */
+
+
+/* Hover effect three */
+.btnbtn, .btnbtnbtn {
+  overflow: hidden;
+  position: relative;
+  
+  &:before {
+    background: #34CCA1;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 1;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    width: 40px;
+    z-index: 10;
+  }
+}
+
+.btnbtn:hover {
+  &:before {
+    left: 120%;
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  transition: all .5s ease-in;
+  background-color: #05010a;
+  color: #f6f6e5;
+};
+
+.btnbtnbtn:hover {
+  &:before {
+    left: 120%;
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  transition: all .5s ease-in;
+  color: #05010a;
+  background-color: #f6f6e5;
+};
+

@@ -1,0 +1,35 @@
+import React from 'react'
+import { MdOutlineCheck, MdOutlineCrueltyFree, MdOutlineCurrencyBitcoin, MdOutlineExplore, MdOutlineMoney } from 'react-icons/md'
+
+function WhyChooseUs() {
+  return (
+    <div className='flex flex-col items-center justify-center gap-10 mt-16 p-6'>
+      <div className='text-center'>
+        <span className='text-secondaryColor'>Our Advantages</span>
+        <h1 className='text-headerTextColor font-bold text-5xl'>Why Choose Us</h1>
+      </div>
+
+      <div className='flex gap-4 items-center justify-center'>
+        <div className='flex flex-col items-center justify-center text-center p-6 gap-4 rounded-md shadow'>
+          <MdOutlineCrueltyFree className='text-secondaryColor' size={90} />
+            <h1 className='text-2xl font-bold text-secondaryColor'>Personalized Experience</h1>
+            <p>We take utmost care of your clothes, segregating based on the cloth type and giving you instant clothes to make a statement </p>
+        </div>
+
+        <div className='flex flex-col items-center justify-center text-center p-7 bg-shadColor gap-4 rounded-md shadow'>
+          <MdOutlineCheck className='text-secondaryColor' size={90} />
+            <h1 className='text-2xl font-bold text-secondaryColor'>Quality</h1>
+            <p>We use the best in class products, to assure that your favorite clothes are always there for you to wear.</p>
+        </div>
+
+        <div className='flex flex-col items-center p-6  justify-center text-center gap-4 rounded-md shadow'>
+          <MdOutlineMoney className='text-secondaryColor' size={90} />
+            <h1 className='text-2xl font-bold text-secondaryColor'>Affordable Pricing</h1>
+            <p>Prices that suits your pocket is one of our USP. An option of choosing between 2 types of pricing is available.</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default WhyChooseUs

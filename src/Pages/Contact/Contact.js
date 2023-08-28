@@ -1,8 +1,13 @@
 import React from 'react'
+import Map from './Map'
+
 
 function Contact() {
   return (
-    <div>Contact</div>
+    <div className='pt-10'>
+      <Map />
+      
+  </div>
   )
 }
 

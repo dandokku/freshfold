@@ -20,8 +20,8 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="prices" element={<Prices />} />
           <Route path="contact" element={<Contact />} />
-
         </Route>
+          <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

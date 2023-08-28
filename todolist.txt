@@ -1,0 +1,2 @@
+Remember to have a coupon page in the users dashboard
+Remember to create a page for Terms of Service and Privacy Policy 
