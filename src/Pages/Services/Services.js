@@ -1,14 +1,14 @@
 import React from 'react'
 import OurServices from './OurServices'
 import OurFeatures from './OurFeatures'
-import OurCoupons from './OurCoupons'
+import Discount from './Discount'
 
 function Services() {
   return (
-    <div className='pt-10'>
+    <div className='pt-14'>
       <OurServices />
       <OurFeatures />
-      <OurCoupons />
+      <Discount />
     </div>
   )
 }
