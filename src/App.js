@@ -8,6 +8,8 @@ import Contact from './Pages/Contact/Contact';
 import Prices from './Pages/Prices/Price';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login'
+import Register from './Pages/Login/Register'
+import Book from './Pages/Book/Book'
 
 
 function App() {
@@ -19,9 +21,14 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
           <Route path="prices" element={<Prices />} />
+          <Route path="book" element={<Book />} />
           <Route path="contact" element={<Contact />} />
         </Route>
-          <Route path='*' element={<NotFound />} />
+
+        <Route path='*' element={<NotFound />} />
+
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='bg-whiteColor p-6 flex flex-col gap-7'>
+    <div className='bg-whiteColor p-6 flex flex-col gap-7 max-sm:text-center'>
 
-      <Link to='/'>
+      <Link to='/' className='max-sm:hidden'>
         <span className='logo text-secondaryColor font-bold text-3xl flex items-center'>Fresh <span className='text-secondaryColor flex '>F <span><FaSoap className="text-secondaryColor" size={30} /></span> ld</span> </span>
       </Link>
       
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-4 max-sm:text-center max-sm:justify-center'>
         <FaFacebookSquare size={20} className='text-textColor' />
         <FaInstagramSquare size={20} className='text-textColor' />
         <FaTwitterSquare size={20} className='text-textColor' />
@@ -24,7 +24,7 @@ function Footer() {
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam deserunt tenetur qui exercitationem autem sunt nostrum, eum inventore perferendis vel repudiandae placeat. Animi quod maxime incidunt deleniti veniam laborum sit.</p>
       </div>
 
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between max-sm:flex-col max-sm:items-center max-sm:gap-5 max-sm:justify-center max-sm:text-center'>
         <div>
           <h1 className='font-bold mb-3'>Pages</h1>
           <div className='flex flex-col gap-2'>
@@ -45,10 +45,10 @@ function Footer() {
           </div>
         </div>
 
-        <div className='flex-[.5]'>
+        <div className='flex-[.5] max-sm:hidden'>
           <form action="" className='flex items-center justify-between gap-1'>
             <input type="text" placeholder='Enter Email' className='outline-none border border-textColor p-2 py-2 px-5 w-full rounded-md focus:border-secondaryColor' />
-            <button type="submit" className='btnbtnbtn p-2 border border-textColor w-[30%] rounded-md bg-textColor text-whiteColor'>Subscribe</button>
+            <button type="submit" className='btnbtn p-2 border border-textColor w-[30%] rounded-md bg-textColor text-whiteColor hover:text-textColor hover:bg-whiteColor'>Subscribe</button>
           </form>
         </div>
       </div>

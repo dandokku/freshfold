@@ -116,13 +116,16 @@ body::-webkit-scrollbar{
 };
 
 .btnbtnbtn:hover {
+
+  color: #05010a;
+  background-color: #f6f6e5;
+  
   &:before {
     left: 120%;
     transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
   transition: all .5s ease-in;
-  color: #05010a;
-  background-color: #f6f6e5;
+  
 };
 

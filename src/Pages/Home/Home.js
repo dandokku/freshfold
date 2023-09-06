@@ -4,6 +4,8 @@ import MiniAbout from './MiniAbout'
 import Slider from './Slider'
 import HowItWorks from './HowItWorks'
 import HardTime from './HardTime'
+import GetApp from './GetApp'
+import OurPricesMini from './OurPricesMini'
 
 function Home() {
   return (
@@ -12,7 +14,9 @@ function Home() {
       {/* <Slider /> */}
       <MiniAbout />
       <HowItWorks />
+      <OurPricesMini />
       <HardTime />
+      <GetApp />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { FaSoap } from 'react-icons/fa';
 import { AiOutlineClose} from 'react-icons/ai';
 import {HiBars3BottomLeft} from 'react-icons/hi2'
 import { Link, NavLink } from 'react-router-dom';
+import ProfileImage from "../Assets/Images/Worker1.avif"
 
 function NavBar() {
   const [nav, setNav] = useState(true);
@@ -28,26 +29,31 @@ function NavBar() {
   }, []);
 
   return (
-    <header className='fixed z-40 w-full bg-whiteColor drop-shadow-sm flex items-center justify-between p-6' active={headerActive ? true : false}>
+    <header className='fixed z-40 w-full bg-whiteColor drop-shadow-sm flex items-center justify-between p-6'>
       <div className='flex'>
         <Link to='/'>
-          <span className='logo text-secondaryColor font-bold text-3xl flex items-center'>Fresh <span className='text-secondaryColor flex '>F <span><FaSoap className="text-secondaryColor" size={30} /></span> ld</span> </span>
+          <span className='logo text-secondaryColor font-bold text-3xl flex items-center max-sm:text-xl'>Fresh <span className='text-secondaryColor flex '>F <span><FaSoap className="text-secondaryColor" size={30} /></span> ld</span> </span>
         </Link>
       </div>
 
       <div className='flex items-center justify-between gap-2'>
-        <div className='flex items-center justify-between gap-[5rem]'>
+        <div className='flex items-center justify-between gap-7'>
           <ul className='items-center justify-between gap-6 text-[1rem] text-textColor hidden md:flex'>
             <NavLink to="/" className={({isActive})=> isActive ? 'active hover:text-secondaryColor ' : 'link'}>Home</NavLink>
             <NavLink to="/about" className='hover:text-secondaryColor'>About</NavLink>
             <NavLink to="/services" className='hover:text-secondaryColor' >Services</NavLink>
             <NavLink to="/prices" className='hover:text-secondaryColor'>Prices</NavLink>
+            <NavLink to="/book" className='hover:text-secondaryColor'>Book</NavLink>
             <NavLink to="/contact" className='hover:text-secondaryColor'>Contact</NavLink>
           </ul>
 
-          <Link to='./login' className='btnbtn border border-textColor py-2 px-7 rounded-sm'>Sign In</Link>
+          <div>
+            <img src={ProfileImage} alt="" className='w-[50px] h-[50px] rounded-[50%]'/>
+            <div></div>
+          </div>
+          
+          <Link to='./login' className='btnbtn border border-textColor py-2 px-7 rounded-md'>Sign In</Link>
         </div>
-        
         
         <div onClick={handleNav} className="block md:hidden">
           {!nav ? <AiOutlineClose size={30} className='text-secondaryColor'/> :  <HiBars3BottomLeft size={30} className='text-secondaryColor'/>}

@@ -5,6 +5,7 @@ import WhyChooseUs from './WhyChooseUs'
 import OurTeam from './OurTeam'
 import Faq from './Faq'
 import Testimonials from './Testimonials'
+import CountStuffs from './CountStuffs'
 
 function About() {
   return (
@@ -12,6 +13,7 @@ function About() {
       <HeroAbout />
       <FewWords />
       <WhyChooseUs />
+      <CountStuffs />
       <Testimonials />
       <Faq />
       <OurTeam />
