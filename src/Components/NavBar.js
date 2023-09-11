@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { FaSoap } from 'react-icons/fa';
-import { AiOutlineClose} from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineDown} from 'react-icons/ai';
 import {HiBars3BottomLeft} from 'react-icons/hi2'
 import { Link, NavLink } from 'react-router-dom';
 import ProfileImage from "../Assets/Images/Worker1.avif"
@@ -8,6 +8,11 @@ import ProfileImage from "../Assets/Images/Worker1.avif"
 function NavBar() {
   const [nav, setNav] = useState(true);
   const [headerActive, setHeaderActive] = React.useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   const handleNav = () => {
     setNav(!nav)
@@ -47,9 +52,15 @@ function NavBar() {
             <NavLink to="/contact" className='hover:text-secondaryColor'>Contact</NavLink>
           </ul>
 
-          <div>
-            <img src={ProfileImage} alt="" className='w-[50px] h-[50px] rounded-[50%]'/>
-            <div></div>
+          <div className='relative group' onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} >
+            <div className='flex gap-1 items-center'>
+              <img src={ProfileImage} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
+              <AiOutlineDown />
+            </div>
+            <div className={`${ isDropdownOpen ? 'block' : 'hidden' } absolute right-0 mt-2 space-y-2 bg-white text-textColor p-5 rounded-md w-max flex flex-col items-center gap-3`}>
+              <Link to="/profile" className='border border-textColor rounded-md py-3 px-11 hover:bg-textColor hover:text-whiteColor'>Profile</Link>
+              <button className='border border-textColor bg-textColor text-whiteColor rounded-md py-3 px-11 hover:bg-headerTextColor hover:text-whiteColor'>Logout</button>
+            </div>
           </div>
           
           <Link to='./login' className='btnbtn border border-textColor py-2 px-7 rounded-md'>Sign In</Link>

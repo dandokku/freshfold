@@ -9,8 +9,9 @@ function MiniAbout() {
     <div className='m-9 my-[9rem]'>
       <div className='flex justify-center items-center gap-5 m-5'>
         <div className='flex gap-5'>
-          <img src={Image} alt='About FreshFold' className='rounded-md h-[400px] w-[300px] mt-10' />
-          <img src={Image2} alt='About FreshFold' className='rounded-md h-[400px] w-[300px] ' />
+        <img src={Image} alt='About FreshFold' class='rounded-md h-400 w-300 mt-10 transform hover:rotate-360 transition-transform duration-300' />
+        <img src={Image2} alt='About FreshFold' class='rounded-md h-400 w-300 transform hover:rotate-360 transition-transform duration-300' />
+
 
         </div>
 
