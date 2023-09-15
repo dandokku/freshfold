@@ -12,25 +12,25 @@ function HowItWorks() {
 
       <div className='flex items-center justify-center gap-7'>
 
-        <div className='p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
+        <div className='hover:ring-4 ring-whiteColor p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
           <span className='text-secondaryColor font-semibold'>Step 1</span>
           <p className='font-bold text-xl'>Pickup</p>
           <img src={Step1} alt="" className='w-[200px] h-[200px]' />
         </div>
 
-        <div className='p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
+        <div className='hover:ring-4 ring-whiteColor p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
           <span className='text-secondaryColor font-semibold'>Step 1</span>
           <p className='font-bold text-xl'>Wash and Dry</p>
           <img src={Step2} alt="" className='w-[200px] h-[200px]' />
         </div>
 
-        <div className='p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
+        <div className=' hover:ring-4 ring-whiteColor p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
           <span className='text-secondaryColor font-semibold'>Step 1</span>
           <p className='font-bold text-xl'>Fold</p>
           <img src={Step3} alt="" className='w-[200px] h-[200px]' />
         </div>
 
-        <div className='p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
+        <div className='hover:ring-4 ring-whiteColor p-3 flex flex-col gap-3 items-center justify-center text-center rounded-md bg-whiteColor h-[300px] shadow-shadColor hover:translate-z-8'>
           <span className='text-secondaryColor font-semibold'>Step 1</span>
           <p className='font-bold text-xl'>Delivery</p>
           <img src={Step4} alt="" className='w-[200px] h-[200px]' />

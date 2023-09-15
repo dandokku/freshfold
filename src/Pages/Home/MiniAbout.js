@@ -3,15 +3,22 @@ import Image from '../../Assets/Images/about.jpg'
 import Image2 from '../../Assets/Images/about.jpg'
 import { Link } from 'react-router-dom'
 import { MdOutlineCheck } from 'react-icons/md'
+import './MiniAbout.css';
 
 function MiniAbout() {
   return (
-    <div className='m-9 my-[9rem]'>
+    <div className='m-9 my-[9rem] mini-about-container'>
+      <div className='bubble' style={{ left: '10%', top: '20%' }}></div>
+      <div className='bubble' style={{ left: '50%', top: '30%' }}></div>
+      <div className='bubble' style={{ left: '80%', top: '10%' }}></div>
+      <div className='bubble' style={{ left: '2%', top: '20%' }}></div>
+      <div className='bubble' style={{ left: '10%', top: '65%' }}></div>
+      <div className='bubble' style={{ left: '40%', top: '65%' }}></div>
+
       <div className='flex justify-center items-center gap-5 m-5'>
         <div className='flex gap-5'>
-        <img src={Image} alt='About FreshFold' class='rounded-md h-400 w-300 mt-10 transform hover:rotate-360 transition-transform duration-300' />
-        <img src={Image2} alt='About FreshFold' class='rounded-md h-400 w-300 transform hover:rotate-360 transition-transform duration-300' />
-
+          <img src={Image} alt='About FreshFold' className='rounded-md h-[400px] w-[300px] mt-10' />
+          <img src={Image2} alt='About FreshFold' className='rounded-md h-[400px] w-[300px] ' />
 
         </div>
 

@@ -11,19 +11,19 @@ function OurPricesMini() {
           </div> 
 
           <div className='flex gap-7 items-center justify-between'>
-              <div className='flex flex-col items-center gap-3 p-5 shadow-lg'>
+              <div className='hover:ring-1 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg'>
                   <MdOutlineShareLocation className='text-[100px] text-secondaryColor'/>
                   <p className='text-3xl'>From $2 per shirt</p>
                   <span>Folding Service</span>
               </div>
 
-              <div className='flex flex-col items-center gap-3 p-8 shadow-lg'>
+              <div className='hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-8 shadow-lg'>
                   <MdOutlineShareLocation className='text-[100px] text-secondaryColor'/>
                   <p className='text-3xl'>From $2 per shirt</p>
                   <span>Folding Service</span>
               </div>
 
-              <div className='flex flex-col items-center gap-3 p-5 shadow-lg'>
+              <div className='hover:ring-1 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg'>
                   <MdOutlineShareLocation className='text-[100px] text-secondaryColor'/>
                   <p className='text-3xl'>From $2 per shirt</p>
                   <span>Folding Service</span>

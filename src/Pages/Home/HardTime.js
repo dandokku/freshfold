@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function HardTime() {
   return (
     <div className='h-[40vh] bg-secondaryColor m-9 rounded-xl flex items-center justify-center p-6'>
-          <img src={Question} alt="" className='w-72 flex-[.4] mb-16' />
+          <img src={Question} alt="" className='w-72 flex-[.4] mb-16 animate-pulse' />
 
           <div className='flex items-center justify-center gap-8 flex-col flex-[.7]'>
               <h1 className='text-whiteColor text-4xl font-bold'>Hard time deciding what's best for you?</h1>

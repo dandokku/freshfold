@@ -10,7 +10,7 @@ function Testimonials() {
       </div>  
 
       <div className='mt-1 flex items-center justify-center gap-10'>
-        <div className='bg-secondaryColor p-6 rounded-md mt-24'>
+        <div className='bg-secondaryColor p-6 rounded-md mt-24 animate-puls'>
           <MdOutlineFormatQuote className='bg-whiteColor text-secondaryColor rounded-[50%] mb-5 w-max' size={50} />
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam aliquid eius a! Tempore inventore quia ut assumenda quis sint sapiente culpa veritatis iste voluptas provident reprehenderit dolorem, doloribus, amet nihil.</p>
         </div>
