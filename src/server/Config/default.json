@@ -1,0 +1,5 @@
+{
+    "jwtPrivateKey" : "",
+    "stripePrivateKey": "sk_test_51N9o11G54KABN7tblhveKAv8HQVcSXcpBOlJezW4FIosyRyE2H2DT3GuQCpSQAHpynIzALfar1S2AVddPab5deYP00IGO79p64",
+    "gmailNodemailerPassword": ""
+}

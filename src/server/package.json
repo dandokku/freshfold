@@ -12,6 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.9"
+    "config": "^3.3.9",
+    "cookie-parser": "^1.4.6",
+    "express-session": "^1.17.3",
+    "lodash": "^4.17.21",
+    "nodemailer": "^6.9.5",
+    "stripe": "^13.6.0",
+    "uuid": "^9.0.1"
   }
 }

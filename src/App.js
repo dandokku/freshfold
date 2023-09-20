@@ -1,6 +1,7 @@
+import React from 'react'
 import './App.css';
 import SharedLayout from './Components/SharedLayout';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Services from './Pages/Services/Services';
@@ -15,7 +16,49 @@ import MyProfile from './Pages/Profile/MyProfile';
 import EditProfile from './Pages/Profile/EditProfile';
 import History from './Pages/Profile/History';
 
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import { setUserLoginDetails } from './Pages/Features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+
 function App() {
+
+  const dispatch = useDispatch();
+
+  async function getUser(){
+    const localData = localStorage.getItem("user-jwt");
+    const token = JSON.parse(localData);
+    const config = {
+      headers: {
+        'x-auth-token': token
+      }
+    };
+  
+  return axios.get("http://localhost:9000/api/users/me", config);
+  }
+
+  const localUserData = localStorage.getItem("user-jwt");
+
+  const { data } = useQuery("user", getUser, {
+    onSuccess: (success) => console.log(success),
+    onError: (error) => console.log(error),
+    enabled: localUserData ? true : false
+  });
+
+  let user = useSelector((state) => state.user);
+
+  React.useEffect(() => {
+    if (data) {
+      dispatch(setUserLoginDetails(data.data));
+      // console.log()
+      console.log("user: ", user);
+    }
+  }, [data, dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -37,6 +80,9 @@ function App() {
         <Route path='*' element={<NotFound />} />
 
         <Route path='login' element={<Login />} />
+        {/* <Route path='login' element={<ProtectedLogin user={data} />}>
+          <Login />
+        </Route> */}
         <Route path='register' element={<Register />} />
       </Routes>
     </BrowserRouter>

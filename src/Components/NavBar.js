@@ -4,8 +4,53 @@ import { AiOutlineClose, AiOutlineDown} from 'react-icons/ai';
 import {HiBars3BottomLeft} from 'react-icons/hi2'
 import { Link, NavLink } from 'react-router-dom';
 import ProfileImage from "../Assets/Images/Worker1.avif"
+import axios from "axios"
+import { useQuery, useQueryClient } from 'react-query';
+import { UseSelector, useDispatch, useSelector } from 'react-redux';
+import { setUserSignOut } from '../Pages/Features/userSlice';
 
 function NavBar() {
+
+  const queryClient = useQueryClient();
+
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user);
+
+  const [changeEnabled, setChangeEnabled] = useState(true)
+
+  async function getUser() {
+    const localData = localStorage.getItem("user-jwt")
+
+    const token = JSON.parse(localData);
+
+    const config = {
+      headers: {
+        "x-auth-token": token,
+      }
+    }
+
+    return axios.get("http://localhost:9000/api/users/me", config);
+  }
+
+  const localUserData = localStorage.getItem("user-jwt")
+
+  const { data } = useQuery("user", getUser, {
+    onSuccess: (success) => console.log(success),
+    onError: (error) => console.log(error),
+    enabled: changeEnabled,
+  })
+
+  // Logout
+  function logOutUser() {
+    queryClient.removeQueries("user");
+    dispatch(setUserSignOut());
+    console.log(user);
+    localStorage.removeItem("user-jwt");
+    setChangeEnabled(false)
+  }
+
+
   const [nav, setNav] = useState(true);
   const [headerActive, setHeaderActive] = React.useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -52,18 +97,31 @@ function NavBar() {
             <NavLink to="/contact" className='hover:text-secondaryColor'>Contact</NavLink>
           </ul>
 
-          <div className='relative group' onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} >
-            <div className='flex gap-1 items-center'>
-              <img src={ProfileImage} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
-              <AiOutlineDown />
-            </div>
-            <div className={`${ isDropdownOpen ? 'block' : 'hidden' } absolute right-0 mt-2 space-y-2 bg-white text-textColor p-5 rounded-md w-max flex flex-col items-center gap-3`}>
-              <Link to="/profile" className='border border-textColor rounded-md py-3 px-11 hover:bg-textColor hover:text-whiteColor'>Profile</Link>
-              <button className='border border-textColor bg-textColor text-whiteColor rounded-md py-3 px-11 hover:bg-headerTextColor hover:text-whiteColor'>Logout</button>
-            </div>
-          </div>
+          {
+            user.id === null && (
+              <div className='relative group' onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} >
+                <div className='flex gap-1 items-center'>
+                  <img src={ProfileImage} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
+                  <AiOutlineDown />
+                </div>
+                <div className={`${isDropdownOpen ? 'block' : 'hidden'} absolute right-0 mt-2 space-y-2 bg-white text-textColor p-5 rounded-md w-max flex flex-col items-center gap-3`}>
+                  <h1 className='text-secondaryColor font-bold'>{ user.firstName }</h1>
+                  <h1 className='text-secondaryColor font-bold'>{ user.email }</h1>
+                  <Link to="/profile" className='border border-textColor rounded-md py-3 px-11 hover:bg-textColor hover:text-whiteColor'>Profile</Link>
+                  <button className='border border-textColor bg-textColor text-whiteColor rounded-md py-3 px-11 hover:bg-headerTextColor hover:text-whiteColor'>Logout</button>
+                </div>
+              </div>
+            )
+          }
           
-          <Link to='./login' className='btnbtn border border-textColor py-2 px-7 rounded-md'>Sign In</Link>
+
+          {
+            user.id === null && (
+              <Link to='./login' className='btnbtn border border-textColor py-2 px-7 rounded-md'>Sign In</Link>
+            )
+          }
+          
+          
         </div>
         
         <div onClick={handleNav} className="block md:hidden">
