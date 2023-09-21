@@ -6,19 +6,6 @@ const bcrypt = require("bcrypt");
 const auth = require("../Middleware/auth");
 const Joi = require("joi");
 
-function validate(user) {
-    const schema = Joi.object({
-        firstName: Joi.string().min(2).max(255).required(),
-        lastName: Joi.string().min(2).max(255).required(),
-        address: Joi.string().min(10).max(255).required(),
-        phoneNo: Joi.string().min(5).max(20).required(),
-        email: Joi.string().min(5).max(255).required().email(),
-    });
-
-    return schema.validate(user);
-}
-
-
 route.get("/", async (req, res) => {
     const users = await Users.find();
     res.send(users);
@@ -55,7 +42,7 @@ route.get("/:id", async (req, res) => {
 route.post("/", async (req, res) => {
 
     const { error } = validateUser(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).send(error);
 
     // * Checking if the user Already Exist
     let user = await Users.findOne({ email: req.body.email });

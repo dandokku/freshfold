@@ -11,7 +11,7 @@ config.get("jwtPrivateKey")
 
 route.post("/", async (req, res) => {
     const { error } = validate(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if(error) return res.status(400).send(error.details[0]);
 
 
     const user = await Users.findOne({email: req.body.email});

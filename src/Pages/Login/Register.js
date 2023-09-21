@@ -1,29 +1,49 @@
 import React from 'react'
 import LogImage from "../../Assets/Images/vladimir-gladkov-eN9atEtVtcc-unsplash.jpg";
 import { Link, useNavigate } from 'react-router-dom'
-// import jwt_decode from "jwt-decode"
+import jwt_decode from "jwt-decode"
 import axios from "axios"
 import { useMutation } from 'react-query';
 
 function Register() {
+  
   const [userSuccess, setUserSuccess] = React.useState("");
   const [userFailed, setUserFailed] = React.useState("");
 
-  async function postUser(fields){
-      const response = await axios.post("http://127.0.0.1:9000/api/users", fields);
+  async function postUser(fields) {
+    try {
+      const response = await axios.post("http://localhost:9000/api/users", fields);
       return response.data;
+    } catch (error) {
+      if (error.response) {
+        // The request was made, but the server responded with a status code
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        // The request was made, but no response was received
+        console.log(error.request);
+      } else {
+        // Something else happened while setting up the request
+        console.error("Error:", error.message);
+      }
+      console.error("Error config:", error.config);
+      throw error; // Re-throw the error to propagate it
+    }
   }
+
 
   const navigate = useNavigate()
 
   const { mutate, isError, data } = useMutation(postUser, {
     onSuccess: () => {
-        setUserSuccess("Register Sucessful...");
+      setUserSuccess("Registration Successful...");
     },
     onError: (error) => {
-        setUserFailed(error.response.data);
-    }
-   });
+      setUserFailed(error.response ? error.response.data : "An error occurred.");
+    },
+  });
+  
 
    const [fieldsData, setFieldsData] = React.useState({
     firstName: "",
@@ -129,6 +149,7 @@ function Register() {
         ...fieldsData,
     });
   }
+  
 
   return (
     <div className='relative m-0 p-0 w-[100%] h-[100%]'>

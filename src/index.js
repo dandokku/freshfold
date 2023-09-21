@@ -7,16 +7,18 @@ import { Provider } from 'react-redux';
 import store from "./Pages/App/store"
 import { ReactQueryDevtools} from "react-query/devtools"
 
-const queryClient = new QueryClient();
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+        <ReactQueryDevtools/>
+      </QueryClientProvider>
   </React.StrictMode>
 );
 
