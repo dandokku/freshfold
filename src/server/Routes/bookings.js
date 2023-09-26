@@ -2,7 +2,7 @@ const express = require("express");
 const route = express.Router();
 const { Bookings, validateBookings } = require("../Models/bookings")
 const { Users } = require("../Models/users");
-// const { BookingCache } = require("../Models/bookings-cache")
+const { BookingCache } = require("../Models/bookings-cache")
 const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 const config = require("config");
@@ -85,7 +85,7 @@ route.get("/user/:id", async (req, res) => {
     // * SO here i check the id ghotten from the request the id is the id of the user, and based on that i use a find to get every id that is the same as the userId, but here i have to use a new objectId so that it can be changed into an id first.
     try{
          booking = await Bookings.find({ 'user._id': new mongoose.Types.ObjectId(userId) }).sort({_id: -1});
-        // console.log(booking);
+        console.log(booking);
         if(!booking) return res.status(404).send("No booking History");
     }
     catch(ex){
@@ -110,7 +110,10 @@ route.get("/:id", async (req, res) => {
 route.post("/", async (req, res) => {
 
     const { error } = validateBookings(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+        console.log("validation error boii");
+    } 
 
     const user = await Users.findOne({ email: req.body.email });
 
@@ -135,134 +138,129 @@ route.post("/", async (req, res) => {
     const bookingCacheId = bookingCache._id;
     // console.log("bookingCacheID: ", bookingCacheId);
 
-    // const customer = await stripe.customers.create({
-    //     metadata: {
-    //         userId: req.body.userId,
-    //         bookingId: bookingCacheId, 
-    //     },
-    // })
+    const customer = await stripe.customers.create({
+        metadata: {
+            userId: req.body.userId,
+            bookingId: bookingCacheId, 
+        },
+    })
 
-    // try{
-    //     const session = await stripe.checkout.sessions.create({
-    //         payment_method_types: ["card"],
-    //         mode: "payment",
-    //         line_items: req.body.items.map(item => {
-    //             return {
-    //                 price_data: {
-    //                     currency: "usd",
-    //                     product_data: {
-    //                         name: item.label
-    //                     },
-    //                     unit_amount: item.price * 100
-    //                 },
-    //                 quantity: item.quantity
-    //             }
-    //         }),
-    //         success_url: "http://localhost:3000/booking-success",
-    //         cancel_url: "http://localhost:3000/services/",
-    //         metadata: {
-    //             // userId: req.body.userId,
-    //             bookingId: JSON.stringify(bookingCacheId), 
-    //         },
-    //     })
-    //     res.json({url: session.url})
-    // }
+    try{
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ["card"],
+            mode: "payment",
+            line_items: req.body.items.map(item => {
+                return {
+                    price_data: {
+                        currency: "usd",
+                        product_data: {
+                            name: item.label
+                        },
+                        unit_amount: item.price * 100
+                    },
+                    quantity: item.quantity
+                }
+            }),
+            success_url: "http://localhost:3000/",
+            cancel_url: "http://localhost:3000/services/",
+            metadata: {
+                // userId: req.body.userId,
+                bookingId: JSON.stringify(bookingCacheId), 
+            },
+        })
+        res.json({url: session.url})
+    }
 
-    // catch(ex){
-    //     res.status(500).send(ex);
-    // }
+    catch(ex){
+        res.status(500).send(ex);
+    }
 
 
 })
 
 let endpointSecret;
 
-// endpointSecret = "whsec_a02a2dae4a85405cae4d108c84da28f4583275278788bb08f5f9352289775484";
+endpointSecret = "whsec_0e369c95de031baba1c149174bf5de36d24a97cb28ecabcbd48e2206e1408c78";
 
-// route.post('/webhook', express.raw({type: 'application/json'}), async (request, response) => {
-//     const sig = request.headers['stripe-signature'];
+route.post('/webhook', express.raw({type: 'application/json'}), async (request, response) => {
+    const sig = request.headers['stripe-signature'];
   
-//     let data;
-//     let eventType;
+    let data;
+    let eventType;
   
-//     if(endpointSecret){
+    if(endpointSecret){
   
-//         let event;
+        let event;
       
-//         try {
-//           event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-//           console.log("Verified Webhook");
-//         } catch (err) {
-//           console.log(`Webhook Error: ${err.message}`);
-//           response.status(400).send(`Webhook Error: ${err.message}`);
-//           return;
-//         }
-//         data = event.data.object;
-//         eventType = event.type;
-//     }
-//     else{
-//       data = request.body.data.object;
-//       eventType = request.body.type;
-//     }
+        try {
+          event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+          console.log("Verified Webhook");
+        } catch (err) {
+          console.log(`Webhook Error: ${err.message}`);
+          response.status(400).send(`Webhook Error: ${err.message}`);
+          return;
+        }
+        data = event.data.object;
+        eventType = event.type;
+    }
+    else{
+      data = request.body.data.object;
+      eventType = request.body.type;
+    }
   
   
-//     // ========= Handle the event
-//     if(eventType === "checkout.session.completed"){
-//       console.log("data:", data);
-//       const bookingCacheId = JSON.parse(data.metadata.bookingId);
-//       console.log(bookingCacheId);
-//       const bookingData = await BookingCache.findById(bookingCacheId);
+    // ========= Handle the event
+    if(eventType === "checkout.session.completed"){
+      console.log("data:", data);
+      const bookingCacheId = JSON.parse(data.metadata.bookingId);
+      console.log(bookingCacheId);
+      const bookingData = await BookingCache.findById(bookingCacheId);
 
-//         const user = await Users.findOne({ email: bookingData.user.email });
-//         console.log(user);
+        const user = await Users.findOne({ email: bookingData.user.email });
+        console.log(user);
 
-//         const booking = new Bookings({
-//             user: {
-//                 _id: user ? user._id : new mongoose.Types.ObjectId(),
-//                 firstName: bookingData.user.firstName,
-//                 lastName: bookingData.user.lastName,
-//                 address: bookingData.user.address,
-//                 phoneNo: bookingData.user.phoneNo,
-//                 email: bookingData.user.email
-//             },
-//             pickUpDate: bookingData.pickUpDate,
-//             deliveryDate: bookingData.deliveryDate,
-//             washPreference: {
-//                 bleachWhites: bookingData.washPreference[0].bleachWhites,
-//                 preferredDetergent: bookingData.washPreference[0].preferredDetergent,
-//                 specialInstructions: bookingData.washPreference[0].specialInstructions
-//             },
-//             items: bookingData.items,
-//             itemsTotalPrice: bookingData.itemsTotalPrice
-//         });
+        const booking = new Bookings({
+            user: {
+                _id: user ? user._id : new mongoose.Types.ObjectId(),
+                firstName: bookingData.user.firstName,
+                lastName: bookingData.user.lastName,
+                address: bookingData.user.address,
+                phoneNo: bookingData.user.phoneNo,
+                email: bookingData.user.email
+            },
+            pickUpDate: bookingData.pickUpDate,
+            deliveryDate: bookingData.deliveryDate,
+            items: bookingData.items,
+            itemsTotalPrice: bookingData.itemsTotalPrice
+        });
 
-//         await booking.save();
+        await booking.save();
 
-//         const mailOptions = {
-//             from: "cleancycle2023@gmail.com",
-//             // ============== Change it here
-//             // to: user.email,
-//             to: "omobill2000@gmail.com",
-//             subject: "Booking Confirmation",
-//             text: "Thank you for your booking! Our team will contact you shortly to schedule a cloth pickup."
-//         }
+        const mailOptions = {
+            from: "jesulobadaniel1@gmail.com",
+            // ============== Change it here
+            to: user.email,
+            // to: "jesulobadaniel1@gmail.com",
+            subject: "Booking Confirmation",
+            text: "Thank you for your booking! Our team will contact you shortly to schedule a cloth pickup."
+        }
         
-//         transporter.sendMail(mailOptions, function(error, info){
-//             if(error){
-//                 console.log(error);
-//             }
-//             else console.log("Email sent: " + info.response);
-//         })
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+                console.log(error);
+            }
+            else console.log("Email sent: " + info.response);
+        })
 
-//         // console.log(booking);
+        // console.log(booking);
 
-// //         res.send(booking);
-//     }
+//         res.send(booking);
+    }
 
   
-//     // Return a 200 response to acknowledge receipt of the event
-//     response.send().end();
-// });
+    // Return a 200 response to acknowledge receipt of the event
+    response.send().end();
+});
 
 route.put("/:id", async (req, res) => {
     const booking = await Bookings.findByIdAndUpdate(req.params.id, {

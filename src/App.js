@@ -15,7 +15,7 @@ import Prices from './Pages/Prices/Price';
 import NotFound from './Pages/NotFound/NotFound';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
-import Book from './Pages/Book/Book';
+import Book from './Pages/Services/Book';
 import SharedProfile from './Pages/Profile/SharedProfile';
 import MyProfile from './Pages/Profile/MyProfile';
 import EditProfile from './Pages/Profile/EditProfile';
@@ -23,6 +23,7 @@ import History from './Pages/Profile/History';
 
 // Redux imports
 import { setUserLoginDetails } from './Pages/Features/userSlice';
+import SharedServiceLayout from './Pages/Services/SharedServiceLayout';
 
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
@@ -85,7 +86,10 @@ function App() {
         <Route path='/' element={<SharedLayout />}>
           <Route index element={<Home />}/>
           <Route path="about" element={<About />} />
-          <Route path="services" element={<Services />} />
+          <Route path="services" element={<SharedServiceLayout />}>
+            <Route index element={<Services />}/>
+            <Route path="/services/:serviceId" element={<Book />}/>
+          </Route>
           <Route path="prices" element={<Prices />} />
           <Route path="book" element={<Book />} />
           <Route path="contact" element={<Contact />} />

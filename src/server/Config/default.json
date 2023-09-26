@@ -1,5 +1,5 @@
 {
     "jwtPrivateKey" : "laundryProjectJwtPrivateKey",
-    "stripePrivateKey": "sk_test_51N9o11G54KABN7tblhveKAv8HQVcSXcpBOlJezW4FIosyRyE2H2DT3GuQCpSQAHpynIzALfar1S2AVddPab5deYP00IGO79p64",
+    "stripePrivateKey": "sk_test_51Nrh3sG7FsOL95mYOUP5c8B20xpJo97p2a3iZMobbze0qRHJNGCl8xW6gZl2PzFeqM9Vqp1m09j2udeonfZROxGt00Cfdal4Cv",
     "gmailNodemailerPassword": ""
 }

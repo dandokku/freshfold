@@ -41,26 +41,30 @@ route.post("/", async (req, res) => {
     }
 })
 
-route.put("/:id", async (req, res) => {
-    const { error } = validateUpdateService(req.body)
-    
+route.put("/:id", async (req, res, next) => {
+    const { error } = validateUpdateService(req.body);
+
     if (error) {
-        return res.status(400).send(error.details[0].message)
+        return next(error); // Pass the validation error to the error handler
     }
 
-    const service = await Services.findByIdAndUpdate(req.params.id, {
-        $set: {
-            serviceName: req.body.serviceName,
-            description: req.body.description
-        }
-    }, { new: true })
+    const service = await Services.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: {
+                serviceName: req.body.serviceName,
+                description: req.body.description
+            }
+        },
+        { new: true }
+    );
 
-    if(!service) {
-        return res.status(404).send("The Service with the id does not Joi.exist")
+    if (!service) {
+        return res.status(404).send("The Service with the given id does not exist.");
     }
 
-    res.send(service)
-})
+    res.send(service);
+});
 
 
 

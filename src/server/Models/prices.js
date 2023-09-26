@@ -20,19 +20,6 @@ const pricesSchema = mongoose.Schema({
 
 const Prices = mongoose.model("Prices", pricesSchema);
 
-// async function createPrice() {
-//     const price = new Prices({
-//         name: "Wash",
-//         group: "Dry Cleaning",
-//         price: 2000
-//     })
-
-//     const result = await price.save();
-//     console.log(result)
-// }
-
-// createPrice()
-
 function validatePrice(price) {
     const schema = Joi.object({
         name: Joi.string().required(),
@@ -58,6 +45,18 @@ async function addPrice(name, group, clothePrice) {
     }
 }
 
+// async function createPrice() {
+//     const price = new Prices({
+//         name: "Trousers",
+//         group: "Iron and Folding",
+//         price: 50
+//     })
+
+//     const result = await price.save();
+//     console.log(result)
+// }
+
+// createPrice()
 
 module.exports.addPrice = addPrice
 module.exports.Prices = Prices

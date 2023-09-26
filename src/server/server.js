@@ -9,6 +9,7 @@ const auth = require("./Routes/auth");
 const adminRoute = require("./Routes/admin");
 const adminAuth = require("./Routes/admin-auth");
 const checkOut = require("./Routes/checkout");
+const webhookRoute = require("./Routes/webhook.js");
 const config = require("config");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -40,12 +41,13 @@ app.use(express.json());
 app.use("/api/services", serviceRoute);
 app.use("/api/users", userRoute);
 app.use("/api/bookings", bookingRoute);
-app.use("/api/auth", auth);
+app.use("/api/auth", auth)
 app.use("/api/admin-auth", adminAuth); 
 app.use("/api/checkout-session", checkOut);
 app.use("/api/admins", adminRoute);
 app.use("/api/admin-auth", adminAuth);
 app.use("/api/prices", priceRoute);
+app.use("/api/stripe", webhookRoute);
 
 if (!config.get("jwtPrivateKey")) {
     console.error("Big Error: jwtPrivateKey is not defined");

@@ -1,12 +1,12 @@
 import React from 'react'
-import OurServices from './OurServices'
 import OurFeatures from './OurFeatures'
 import Discount from './Discount'
+import OfferedServices from './OfferedServices'
 
 function Services() {
   return (
     <div className='pt-14'>
-      <OurServices />
+      <OfferedServices />
       <OurFeatures />
       <Discount />
     </div>

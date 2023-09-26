@@ -16,13 +16,20 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUserLoginDetails: (state, action) => {
-            state.id = action.payload._id;
-            state.firstName = action.payload.firstName;
-            state.lastName = action.payload.lastName;
-            state.address = action.payload.address;
-            state.phoneNo = action.payload.phoneNo;
-            state.email = action.payload.email;
-            state.password = action.payload.password;
+            // Check if action.payload is defined
+            if (action.payload) {
+                state.id = action.payload._id || null;
+                state.firstName = action.payload.firstName || null;
+                state.lastName = action.payload.lastName || null;
+                state.address = action.payload.address || null;
+                state.phoneNo = action.payload.phoneNo || null;
+                state.email = action.payload.email || null;
+                state.password = action.payload.password || null;
+            } else {
+                console.log("Welp")
+                // Handle the case where action.payload is undefined
+                // You may choose to set defaults or take other appropriate action here.
+            }
         },
         setUserSignOut: (state) => {
             state.id = null;
@@ -34,7 +41,8 @@ const userSlice = createSlice({
             state.password = null;
         }
     }
-})
+});
+
 
 export default userSlice.reducer;
 export const { setUserLoginDetails, setUserSignOut } = userSlice.actions;

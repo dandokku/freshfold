@@ -19,8 +19,8 @@ const Services = mongoose.model("Services", serviceSchema)
 
 // async function createService() {
 //     const service = new Services({
-//         serviceName: "Dry Cleaning",
-//         description: "We will wash, dry and clean your clothes"
+//         serviceName: "Stain Removal",
+//         description: "We will remove stains and spots from your clothes"
 //     })
 
 //     const result = await service.save();
@@ -28,6 +28,22 @@ const Services = mongoose.model("Services", serviceSchema)
 // }
 
 // createService()
+
+
+// const newService = new Services({
+//     serviceName: "Iron and Folding",
+//     description: "We will iron and fold your clothes"
+// });
+
+// // Save the new service document
+// newService.save()
+//     .then(savedService => {
+//         console.log(savedService);
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     });
+
 
 
 function validateService(service) {
@@ -40,4 +56,4 @@ function validateService(service) {
 }
 
 module.exports.Services = Services;
-    module.exports.validateService = validateService;
+module.exports.validateService = validateService;
