@@ -80,7 +80,6 @@ route.put("/:id", async (req, res) => {
             lastName: req.body.lastName,
             address: req.body.address,
             phoneNo: req.body.phoneNo,
-            email: req.body.email,
         }
     }, { new: true })
 

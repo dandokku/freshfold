@@ -108,12 +108,14 @@ route.get("/:id", async (req, res) => {
 
 
 route.post("/", async (req, res) => {
+    console.log("Received request body:", req.body);
 
     const { error } = validateBookings(req.body);
     if (error) {
+        console.log("validation error boii"); // This log line might be helpful for debugging
         return res.status(400).send(error.details[0].message);
-        console.log("validation error boii");
-    } 
+    }
+
 
     const user = await Users.findOne({ email: req.body.email });
 
@@ -128,7 +130,7 @@ route.post("/", async (req, res) => {
         },
         pickUpDate: req.body.pickUpDate,
         deliveryDate: req.body.deliveryDate,
-        specialInstructions: req.body.specialInstructions,
+        // specialInstructions: req.body.specialInstructions,
         items: req.body.items,
         itemsTotalPrice: req.body.itemsTotalPrice
     }
@@ -136,7 +138,7 @@ route.post("/", async (req, res) => {
     await bookingCache.save();
 
     const bookingCacheId = bookingCache._id;
-    // console.log("bookingCacheID: ", bookingCacheId);
+    console.log("bookingCacheID: ", bookingCacheId);
 
     const customer = await stripe.customers.create({
         metadata: {
@@ -145,7 +147,7 @@ route.post("/", async (req, res) => {
         },
     })
 
-    try{
+    try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             mode: "payment",
@@ -153,27 +155,26 @@ route.post("/", async (req, res) => {
                 return {
                     price_data: {
                         currency: "usd",
+                        unit_amount: item.price * 100,
                         product_data: {
-                            name: item.label
+                            name: item.label,// You can also include other product data as needed
                         },
-                        unit_amount: item.price * 100
                     },
-                    quantity: item.quantity
-                }
+                    quantity: item.quantity,
+                };
             }),
-            success_url: "http://localhost:3000/",
+            success_url: "http://localhost:3000/services/",
             cancel_url: "http://localhost:3000/services/",
             metadata: {
-                // userId: req.body.userId,
-                bookingId: JSON.stringify(bookingCacheId), 
+                bookingId: JSON.stringify(bookingCacheId),
             },
-        })
-        res.json({url: session.url})
-    }
-
-    catch(ex){
+        });
+        
+        res.json({ url: session.url });
+    } catch (ex) {
         res.status(500).send(ex);
     }
+    
 
 
 })
@@ -182,85 +183,64 @@ let endpointSecret;
 
 endpointSecret = "whsec_0e369c95de031baba1c149174bf5de36d24a97cb28ecabcbd48e2206e1408c78";
 
-route.post('/webhook', express.raw({type: 'application/json'}), async (request, response) => {
+route.post('/webhook', express.raw({ type: 'application/json' }), async (request, response) => {
     const sig = request.headers['stripe-signature'];
-  
-    let data;
-    let eventType;
-  
-    if(endpointSecret){
-  
+
+    try {
         let event;
-      
-        try {
-          event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-          console.log("Verified Webhook");
-        } catch (err) {
-          console.log(`Webhook Error: ${err.message}`);
-          response.status(400).send(`Webhook Error: ${err.message}`);
-          return;
+
+        // Verify the webhook and construct the event
+        if (endpointSecret) {
+            event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+            console.log("Verified Webhook");
+        } else {
+            event = request.body;
         }
-        data = event.data.object;
-        eventType = event.type;
-    }
-    else{
-      data = request.body.data.object;
-      eventType = request.body.type;
-    }
-  
-  
-    // ========= Handle the event
-    if(eventType === "checkout.session.completed"){
-      console.log("data:", data);
-      const bookingCacheId = JSON.parse(data.metadata.bookingId);
-      console.log(bookingCacheId);
-      const bookingData = await BookingCache.findById(bookingCacheId);
 
-        const user = await Users.findOne({ email: bookingData.user.email });
-        console.log(user);
+        const eventType = event.type;
+        const data = event.data.object;
 
-        const booking = new Bookings({
-            user: {
-                _id: user ? user._id : new mongoose.Types.ObjectId(),
-                firstName: bookingData.user.firstName,
-                lastName: bookingData.user.lastName,
-                address: bookingData.user.address,
-                phoneNo: bookingData.user.phoneNo,
-                email: bookingData.user.email
-            },
-            pickUpDate: bookingData.pickUpDate,
-            deliveryDate: bookingData.deliveryDate,
-            items: bookingData.items,
-            itemsTotalPrice: bookingData.itemsTotalPrice
-        });
+        // Handle the event
+        if (eventType === "checkout.session.completed") {
+            const bookingCacheId = JSON.parse(data.metadata.bookingId);
+            console.log(bookingCacheId);
+            const bookingData = await BookingCache.findById(bookingCacheId);
 
-        await booking.save();
+            // Log the booking data for debugging
+            console.log("Booking Data:", bookingData);
 
-        const mailOptions = {
-            from: "jesulobadaniel1@gmail.com",
-            // ============== Change it here
-            to: user.email,
-            // to: "jesulobadaniel1@gmail.com",
-            subject: "Booking Confirmation",
-            text: "Thank you for your booking! Our team will contact you shortly to schedule a cloth pickup."
+            // Create an instance of the Bookings model and save it
+            const user = await Users.findOne({ email: bookingData.user.email });
+            const booking = new Bookings({
+                user: {
+                    _id: user ? user._id : new mongoose.Types.ObjectId(),
+                    firstName: bookingData.user.firstName,
+                    lastName: bookingData.user.lastName,
+                    address: bookingData.user.address,
+                    phoneNo: bookingData.user.phoneNo,
+                    email: bookingData.user.email
+                },
+                pickUpDate: bookingData.pickUpDate,
+                deliveryDate: bookingData.deliveryDate,
+                items: bookingData.items,
+                itemsTotalPrice: bookingData.itemsTotalPrice
+            });
+
+            // Save the booking data to the Bookings model
+            await booking.save();
+
+            // Log success
+            console.log("Booking saved:", booking);
         }
-        
-        transporter.sendMail(mailOptions, function(error, info){
-            if(error){
-                console.log(error);
-            }
-            else console.log("Email sent: " + info.response);
-        })
 
-        // console.log(booking);
-
-//         res.send(booking);
+        // Return a 200 response to acknowledge receipt of the event
+        response.send().end();
+    } catch (error) {
+        console.error("Webhook Error:", error);
+        response.status(500).send("Webhook Error: " + error.message);
     }
-
-  
-    // Return a 200 response to acknowledge receipt of the event
-    response.send().end();
 });
+
 
 route.put("/:id", async (req, res) => {
     const booking = await Bookings.findByIdAndUpdate(req.params.id, {

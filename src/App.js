@@ -24,6 +24,7 @@ import History from './Pages/Profile/History';
 // Redux imports
 import { setUserLoginDetails } from './Pages/Features/userSlice';
 import SharedServiceLayout from './Pages/Services/SharedServiceLayout';
+import BookingHistory from './Pages/Profile/BookingHistory';
 
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
@@ -96,13 +97,15 @@ function App() {
         </Route>
 
         <Route path='profile' element={<SharedProfile />}>
-          <Route index path='myprofile' element={<MyProfile />} />
+          <Route index element={<MyProfile />} />
           <Route path='editprofile' element={<EditProfile />} />
-          <Route path='history' element={<History />} />
+          <Route path='history'>
+            <Route index element={<BookingHistory />} />
+            <Route path=':bookingId' element={<History /> } />
+          </Route>
         </Route>
 
         <Route path='*' element={<NotFound />} />
-
         <Route path='login' element={<Login />} />
         {/* <Route path='login' element={<ProtectedLogin user={data} />}>
           <Login />

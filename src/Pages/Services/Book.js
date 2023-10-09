@@ -85,7 +85,7 @@ function Book() {
       address: "",
       phoneNo: "",
       email: "",
-      specialInstructions: ""
+    //   specialInstructions: ""
   })
   const [modalsBookingDetails, setModalsBookingDetails] = React.useState({});
 
@@ -179,7 +179,6 @@ function Book() {
               priceName: item.label,
               quantity: item.quantity,
               price: item.price,
-              priceImage: item.priceImage,
               totalUnitPrice: item.price * item.quantity 
           })
       })
@@ -358,10 +357,10 @@ function Book() {
     fontSize: "1rem",
     letterSpacing: 0,
     font: "poppins",
-    borderColor: state.isFocused ? "#e9b609" : "#d3d3d3",
-    boxShadow: state.isFocused ? `0 0 0 1px #E9B6097b` : "",
+    borderColor: state.isFocused ? "#34CCA1" : "#d3d3d3",
+    boxShadow: state.isFocused ? `0 0 0 1px #34CCA1` : "",
     "&:hover": {
-        borderColor: state.isFocused ? "#E9B609" : "#d3d3d3",
+        borderColor: state.isFocused ? "#34CCA1" : "#d3d3d3",
         // boxShadow: state.isFocused ? "0 0 0 3px #E9B6097b" : "",
     }
     }),
@@ -451,19 +450,19 @@ function Book() {
 
         <div className='flex items-center gap-4 w-full'>
           <DatePicker
-            selected={startPickupDate} onChange={handleDateChangePickup} className="border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor flex-1" placeholderText="Pick Up Date" minDate={minDate}
+            selected={startPickupDate} onChange={handleDateChangePickup} className="w-[625px] border border-mainColor focus:border-secondaryColor p-1 py-2 rounded-md outline-none text-mainColor flex-[0.5]" placeholderText="Pick Up Date" minDate={minDate}
             
           />
           
 
           <DatePicker
             selected={deliveryDate} onChange={handleDateChangeDelivery}
-            className="flex-1 border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor" placeholderText="Delivery Date" minDate={getMinDeliveryDate()}
+            className="w-[625px] border border-mainColor focus:border-secondaryColor flex-[0.5] p-1 py-2 rounded-md outline-none text-mainColor" placeholderText="Delivery Date" minDate={getMinDeliveryDate()}
             // showTimeSelect // dateFormat="MM/dd/yyyy hh:mm aa"
           />
         </div>
 
-        <input type="text" name="" id="" placeholder='Special Instructions, Example: Wash with hot water' className='border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor' onChange={handleInputChange} />
+        {/* <input type="text" name="" id="" placeholder='Special Instructions, Example: Wash with hot water' className='border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor' onChange={handleInputChange} /> */}
         
         {/* <select name="" id="" placeholder='Select Service' className='border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor'>
           <option value="">Welp</option>
@@ -473,13 +472,13 @@ function Book() {
         </select> */}
 
         {selectFields.map((selectField, index) => (
-          <div key={selectField.id} className='price-row flex items-center justify-center w-max'>
+          <div key={selectField.id} className=' mt-4 flex gap-6 items-center justify-between'>
               <div>
               <Select
                   options={selectField.options}
                   value={selectField.selectedOption}
                   onChange={(selectedOption) => handleSelectChange(selectedOption, index)}
-                  className='select-field' styles={selectStyles} placeholder = "Clothe"
+                  className='border focus:border-secondaryColor' styles={selectStyles} placeholder = "Clothes Type"
               />
               </div>
               
@@ -488,7 +487,7 @@ function Book() {
                   type="number"
                   // value={inputFields[index] ? inputFields[index].value : ""}
                   onChange={(event) => handleFieldsData(index, event)}
-                  name={selectField.selectedOption?.label}  min={1} max={200} className='input-field' placeholder='Quantity'
+                  name={selectField.selectedOption?.label}  min={1} max={200} className='p-2 border border-mainColor focus:border-secondaryColor rounded-md w-max outline-none' placeholder='Quantity'
               />
           </div>
               
@@ -500,12 +499,12 @@ function Book() {
 
 
 
-        <div>
-          <button onClick={handleAddSelectField} type="button">Add Item</button>
+        <div className='flex  gap-6'>
+          <button onClick={handleAddSelectField} type="button" className='hover:text-secondaryColor rounded-md border border-secondaryColor p-4 px-11 mt-3 btnbtn bg-secondaryColor text-whiteColor hover:bg-whiteColor'>Add Item</button>
 
           {
             selectFields.length >= 1 &&
-            <button onClick={handleRemoveSelectField} type="button">Remove Item</button>
+            <button onClick={handleRemoveSelectField} type="button" className='hover:text-secondaryColor rounded-md border border-secondaryColor p-4 px-11 mt-3 btnbtn bg-secondaryColor text-whiteColor hover:bg-whiteColor'>Remove Item</button>
         }
         </div>
 
@@ -513,7 +512,7 @@ function Book() {
 
         {
           selectFields.length >= 1 &&
-          <button onClick={verifyData} type="button">Verify</button>
+          <button onClick={verifyData} type="button" className='text-secondaryColor rounded-md border border-secondaryColor p-4 px-11 mt-3 btnbtn hover:bg-secondaryColor hover:text-whiteColor bg-whiteColor'>Verify</button>
       }
 
       {
@@ -536,594 +535,5 @@ function Book() {
 export default Book
 
 
-
-const primary = "#34347C";
-const secondary = "#E9B609";
-const bg = "#F4F4F4";
-const borderRad = "5px";
-const yellowBtnHover = "#f7cb39";
-const gray = "#545454";
-
-const Container = styled.div``
-
-const HeroSection = styled.div`
-    padding: 6rem 3rem 6rem 3rem;
-    background-color: #34347C4b;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-
-
-    h2{
-        color: ${secondary};
-        font-size: 2.3rem;
-    }
-`
-
-const MainContainer = styled.div`
-    
-
-    .service-image{
-        text-align: center;
-        img{
-            width: 80%;
-            border-radius: ${borderRad};
-        }
-    }
-
-    .popup-modal.active{
-        scale: 1;
-        transition: all .3s ease-in-out;
-    }
-
-    .bottom-contact-service{
-        display: none;
-
-        @media screen and (max-width: 800px) {
-            display: block;
-        }
-    }
-`
-
-const TopContainer = styled.div`
-    display: grid;
-    margin-top: 3rem;
-    grid-template-columns: 23rem auto;
-
-    .contact-service{
-        @media screen and (max-width: 800px) {
-            display: none;
-        }
-    }
-
-    @media (max-width: 800px) {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-`
-
-const ServiceContainer = styled.div`
-    padding: 2rem;
-`
-
-const WhatWeOffer = styled.div`
-    text-align: center;
-
-
-    div{
-        .clients-list{
-        gap: 2rem;
-        padding: 1rem;
-        text-align: start;
-
-        @media screen and (max-width: 568px) {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0;
-        }
-
-        p{
-            margin-top: 2rem;
-            font-weight: 600;
-        }
-
-        div{
-            flex: .5;
-            place-items: center;
-
-            li{
-                margin-bottom: 0.5rem;
-
-                &::marker{
-                    color: ${secondary};
-                }
-            }
-        }
-        }
-    }
-`
-
-const TopContent = styled.div`
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-
-
-    p:last-child{
-        color: gray;
-        width: 60%;
-        margin: 0 auto;
-
-        @media (max-width: 690px) {
-            width: 90%;
-        }
-    }
-
-    p:first-child{
-        font-size: 1rem;
-        font-weight: 700;
-        color: ${secondary};
-    }
-
-    h3{
-        font-size: 2.3rem;
-        color: ${gray};
-
-        @media (max-width: 600px) {
-            font-size: 1.8rem;
-        }
-    }
-`
-
-const ServicesBox = styled.div`
-    margin-bottom: 5rem;
-    transition: all .3s ease-in-out;
-
-
-    @media screen and (max-width: 400px) {
-        padding: 0.8rem;
-    }
-
-`
-
-const BookSection = styled.form`
-    padding: 1rem;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-  .price-row{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); justify-content: center;
-    align-items: center; place-items: center; gap: 1rem;
-
-    input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none; margin: 0; display: none;
-    }
-    
-
-    >div{
-      width: 100%;
-    }
-
-    .select-field{
-      max-width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    .input-field{
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      height: 50px;
-      border-radius: ${borderRad};
-      border: solid 1px #d3d3d3;
-      outline: none;
-      text-indent: 1rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      
-        &:focus{
-            border: solid 1.5px ${secondary};
-            transition: all .2s ease-in-out;
-        }
-    }
-    }
-
-  .submit-button{
-    padding: 0.8rem 1.5rem;
-    background-color: ${primary};
-    color: ${secondary};
-    position: relative;
-    border-radius: ${borderRad};
-    text-decoration: none;
-    border: none;
-    outline: none;
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 1rem;
-
-    &:hover{
-      background-color: #34349d;
-    }
-
-  }
-
-  .bookBtn{
-        padding: 0.8rem 1.5rem;
-        background-color: ${secondary};
-        color: ${primary};
-        border-radius: ${borderRad};
-        font-weight: 700;
-        outline: none;
-        width: 60%;
-        border: none;
-        cursor: pointer;
-        margin: 0 auto;
-
-        &:hover{
-            background-color: ${yellowBtnHover};
-        }
-    }
-
-`;
-
-const OperationButtons = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25555rem;
-`
-
-const PricesDiv = styled.div`
-    width: 100%;
-    flex: .5;
-    padding: 2rem 0;
-    position: relative;
-    font-size: 1rem;
-    text-align: center;
-
-    @media screen and (max-width: 500px) {
-        font-size: 0.9rem;
-    }
-
-    .btn-mask{
-        border-radius: ${borderRad};
-        position: absolute;
-        color: ${secondary};
-        text-align: center;
-        position: absolute;
-        border: solid 2px ${secondary};
-        text-decoration: none;
-        padding: 15px 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 50%;
-
-        @media (max-width: 900px){
-            width: 100% !important;
-        }
-    }
-
-    button{
-        width: 50%;
-    position: relative;
-    text-decoration: none;
-    color: #fff;
-    background: ${secondary};
-    padding: 15px 20px;
-    -webkit-mask-size: 3000% 100%;
-    mask-size: 3000% 100%;
-    border: solid 2px ${secondary};
-    border-radius: ${borderRad};
-    cursor: pointer;
-    -webkit-animation: ani2 0.7s steps(29) forwards;
-    animation: ani2 0.7s steps(29) forwards;
-    font-size: 1rem;
-    font-family: poppins;
-
-    @media (max-width: 900px){
-        width: 100% !important;
-    }
-
-    @media screen and (max-width: 500px) {
-        font-size: 0.9rem;
-    }
-
-    &:hover{
-        -webkit-animation: ani 0.7s steps(29) forwards;
-        animation: ani 0.7s steps(29) forwards;
-    }
-
-
-   
-    @keyframes ani {
-        from{
-            -webkit-mask-position: 0 0;
-            mask-position: 0 0;
-        }
-        to{
-            -webkit-mask-position: 100% 0;
-            mask-position: 100% 0%;
-        }
-    }
-
-    @keyframes ani2{
-        from{
-            -webkit-mask-position: 100% 0;
-            mask-position: 100% 0;
-        }
-        to{
-            -webkit-mask-position: 0 0;
-            mask-position: 0 0;
-        }
-    }
-
-    
-    }
-
-
-    
-    @media (max-width: 568px) {
-        width: 100%;
-    }
-`
-const PricesDiv2 = styled.div`
-    width: 100%;
-    flex: .5;
-    padding: 2rem 0;
-    position: relative;
-    font-size: 1rem;
-    text-align: center;
-
-    @media screen and (max-width: 500px) {
-        font-size: 0.9rem;
-    }
-
-    .btn-mask{
-        border-radius: ${borderRad};
-        position: absolute;
-        color: #F72609;
-        text-align: center;
-        position: absolute;
-        border: solid 2px #F72609;
-        text-decoration: none;
-        padding: 15px 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 50%;
-
-        @media (max-width: 900px){
-            width: 100%;
-        }
-    }
-
-    button{
-        width: 50%;
-        position: relative;
-        text-decoration: none;
-        color: #fff;
-        background:#F72609;
-        padding: 15px 20px;
-        -webkit-mask-size: 3000% 100%;
-        mask-size: 3000% 100%;
-        border: solid 2px #F72609;
-        border-radius: ${borderRad};
-        cursor: pointer;
-        -webkit-animation: ani2 0.7s steps(29) forwards;
-        animation: ani2 0.7s steps(29) forwards;
-        font-size: 1rem;
-        font-family: poppins;
-
-        @media (max-width: 900px){
-            width: 100% !important;
-        }
-
-        @media screen and (max-width: 500px) {
-            font-size: 0.9rem;
-        }
-
-    &:hover{
-        -webkit-animation: ani 0.7s steps(29) forwards;
-        animation: ani 0.7s steps(29) forwards;
-    }
-
-
-    @keyframes ani {
-        from{
-            -webkit-mask-position: 0 0;
-            mask-position: 0 0;
-        }
-        to{
-            -webkit-mask-position: 100% 0;
-            mask-position: 100% 0%;
-        }
-    }
-
-    @keyframes ani2{
-        from{
-            -webkit-mask-position: 100% 0;
-            mask-position: 100% 0;
-        }
-        to{
-            -webkit-mask-position: 0 0;
-            mask-position: 0 0;
-        }
-    }
-
-    
-    }
-
-
-    
-
-`
-
-const PersonalInformation = styled.div`
- .input-field{
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      height: 50px;
-      border-radius: ${borderRad};
-      border: solid 1px #d3d3d3;
-      outline: none;
-      text-indent: 1rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      
-        &:focus{
-            border: solid 1px ${secondary};
-            transition: all .2s ease-in-out;
-        }
-    }
-
-    .contact-information{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-        @media screen and (max-width: 520px) {
-            flex-direction: column;
-            gap: 0;
-        }
-    }
-
-    .contact-names{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-        @media screen and (max-width: 520px) {
-            flex-direction: column;
-            gap: 0;
-        }
-    }
-
-    .date-fields{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-        .custom-datepicker{
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            height: 50px;
-            border-radius: ${borderRad};
-            border: solid 1px #d3d3d3;
-            outline: none;
-            text-indent: 1rem;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            
-            &:focus{
-                border: solid 1.5px ${secondary};
-                transition: all .2s ease-in-out;
-            }
-
-            .react-datepicker__header {
-                background-color: red;
-            }
-        }
-    }
-
-    .special-instructions{
-        display: flex;
-        gap: 2.2rem;
-        margin-bottom: 1rem;
-        align-items: center;
-        
-        @media screen and (max-width: 520px) {
-            gap: 1rem;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        h4{
-            color: ${gray};
-            font-size: 1rem;
-            font-weight: 500;
-            flex: .3;
-        }
-
-        input{
-            flex: 1;
-
-            @media screen and (max-width: 520px) {
-                flex: inherit;
-            }   
-
-        }
-    }
-
-    
-`
-
-const ServicesDiv = styled.div`
-    width: 70%;
-    margin: 0 auto;
-    >div:first-child{
-        h2{
-            text-align: center;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        width: 90%;
-    }
-
-    @media screen and (max-width: 568px) {
-        width: 100%;
-    }
-`
-
-const RadioChoices = styled.div`
-    .wash-choice{
-        display: flex;
-        gap: 2.2rem;
-        margin-bottom: 2rem;
-
-        @media screen and (max-width: 520px) {
-            gap: 1rem;
-            flex-direction: column;
-        }
-
-        h4{
-            color: ${gray};
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .custom-radio{
-            margin-right: 0.5rem;
-            
-        }
-    }
-`
-
-const GoToTop = styled.div`
-    background-color: ${secondary};
-    opacity: 0.8;
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    width: 50px;
-    height: 50px;
-    border-radius: ${borderRad};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    scale: 0;
-    color: ${primary};
-
-    &:hover{
-        opacity: 1;
-    }
-`
+const secondary = "#34CCA1";
+const borderRad = "10px";

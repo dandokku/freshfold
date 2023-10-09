@@ -26,9 +26,9 @@ export default function Modal(props) {
          verifiedItems = props?.totalPriceItems?.map(item => {
             return <Item>
                 <div>
-                    <h2>{item.priceName}</h2>
-                    <p>{item.quantity} x <span>${item.price}</span></p>
-                    <p>Total: {item.totalUnitPrice}</p>
+                    <h2 className="font-bold text-xl text-textColor">{item.priceName}</h2>
+                    <p className="font-semibold text-textColor">{item.quantity} x <span>${item.price}</span></p>
+                    <p className="font-semibold text-textColor">Total: {item.totalUnitPrice}</p>
                 </div>
     
             </Item>
@@ -45,12 +45,12 @@ export default function Modal(props) {
         <Container>
             <ServiceModal className={props.modalClass}>
 
-                <PopUpModal className="modal">
+                <PopUpModal className="modal p-11 flex flex-col gap-3">
                     <div style={{marginBottom: "1rem", color: gray, display: "flex", justifyContent: "space-between"}}>
-                        <h2>Verify Items</h2>
+                        <h2 className="font-bold text-2xl text-headerTextColor">Verify Items</h2>
                         <div>
                             {/* // NB OnCLick of this close icon, set the the modalOpenClass back to just popup-modal which is making sure that the modal does not display */}
-                            <MdOutlineClear size={30} onClick={() => props.setModalClass("popup-modal")}/>
+                            <MdOutlineClear size={30} className="cursor-pointer" onClick={() => props.setModalClass("popup-modal")}/>
                         </div>
                     </div>
 
@@ -74,8 +74,7 @@ export default function Modal(props) {
                     </Total>
 
                     <PricesDiv>
-                        <span className="btn-mask">Confirm Booking</span>
-                        <button>Confirm Booking</button>
+                        <button className="btnbtn font-bold hover:bg-shadColor hover:text-secondaryColor">Verify Booking</button>
                     </PricesDiv>
                     
                 </PopUpModal>
@@ -89,11 +88,9 @@ export default function Modal(props) {
 
 // =============== Root Variables
 
-const primary = "#34347C";
-const secondary = "#E9B609";
-const bg = "#F4F4F4";
+const secondary = "#34CCA1";
+const bg = "rgb(230, 230, 230)";
 const borderRad = "5px";
-const yellowBtnHover = "#f7cb39";
 const gray = "#545454";
 
 const ServiceModal = styled.div`

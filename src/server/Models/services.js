@@ -19,8 +19,8 @@ const Services = mongoose.model("Services", serviceSchema)
 
 // async function createService() {
 //     const service = new Services({
-//         serviceName: "Stain Removal",
-//         description: "We will remove stains and spots from your clothes"
+//         serviceName: "Dry Cleaning",
+//         description: "We will iron and fold your clothes"
 //     })
 
 //     const result = await service.save();

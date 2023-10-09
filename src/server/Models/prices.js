@@ -47,9 +47,9 @@ async function addPrice(name, group, clothePrice) {
 
 // async function createPrice() {
 //     const price = new Prices({
-//         name: "Trousers",
+//         name: "Pillow Case",
 //         group: "Iron and Folding",
-//         price: 50
+//         price: 6
 //     })
 
 //     const result = await price.save();

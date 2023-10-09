@@ -4,8 +4,8 @@ import { Outlet } from 'react-router'
 
 function SharedProfile() {
   return (
-      <div className='flex gap-3'>
-          <Dashboard />
+      <div className=''>
+          <Dashboard className="mb-10"/>
 
           <Outlet />
     </div>

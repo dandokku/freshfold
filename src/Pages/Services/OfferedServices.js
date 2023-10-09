@@ -19,9 +19,9 @@ export default function OfferedServices() {
     const allServices = data?.data.map( service => {
         return <Link style={{textDecoration: "none", flex: ".5"}} to={`/services/${service._id}`}>
             <div key={service._id}>
-            <div className="service-content">
-                <h3>{service.serviceName}</h3>
-                <p>{service.description}</p>
+            <div className="bg-mainColor w-[300px] rounded-md p-5 hover:scale-105">
+                <h3 className="font-bold text-xl text-whiteColor">{service.serviceName}</h3>
+                <p className="text-shadColor mt-1">{service.description}</p>
                 
                 {/* <div>
                     <BookServicesLink to={`/services/${service._id}`}>More Info</BookServicesLink>
@@ -39,8 +39,14 @@ export default function OfferedServices() {
 
 
     return (
-        <div className="mt-14 p-10">
-            {allServices}
+        <div className="mt-14 p-10 flex flex-col items-center justify-center gap-8">
+            <div className="text-center">
+                <h1 className="font-bold text-4xl text-headerTextColor">Our Services</h1>
+                <p className="text-secondaryColor">These are the services offered by freshfold:</p>
+            </div>
+            <div className="flex items-center justify-between text-mainColor text-center gap-5">
+                {allServices}
+            </div>
         </div>
         
     )

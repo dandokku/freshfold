@@ -27,7 +27,7 @@ export default function PriceList() {
 
     // ======== Looping through the prices in the array
     data?.data.forEach(price => {
-        if(price.group === "Iron and Fold"){
+        if(price.group === "Iron and Folding"){
             ironArray.push(price)
         }
         else if(price.group === "Dry Cleaning"){
