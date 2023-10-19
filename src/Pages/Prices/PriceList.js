@@ -46,13 +46,10 @@ export default function PriceList() {
         <Container>
 
             <TopContent>
-                <p>Important Information</p>
                 <h3>Full Price Table</h3>
-                <p>Laundry service pricing is volume based. Dry cleaning is priced by item type. Give us a call to review pricing and services today!</p>
             </TopContent>
 
             <div>
-                {/* // NB Here we are creating a tab and we define a custom prop and we call it active andf this property returns either true or false based on the activeTab being === a number, so every button has an onClick and then each onClick listener updates the activeTab to the respective number, we have the active there so we can access it in the Styled components and then render the tabs respectively */}
                 <TabList>
                     <TabButton active={activeTab === 1} onClick={() => handleTabClick(1)}>
                     Ironing
@@ -113,11 +110,11 @@ export default function PriceList() {
 // =============== Root Variables
 
 const primary = "#34347C";
-const secondary = "#E9B609";
+const secondary = "#34CCA1";
 const bg = "#F4F4F4";
 const borderRad = "5px";
 // const yellowBtnHover = "#f7cb39";
-const gray = "#545454";
+const gray = "#7A8C87";
 
 const Container = styled.div`
     padding: 2rem;
@@ -189,7 +186,7 @@ const TabButton = styled.button`
   padding: 1.4rem;
   border: none;
   background-color: ${(props) => (props.active ? `${secondary}` : "#fff")};
-  box-shadow: ${(props) => (props.active ? "" : "0 0 16px 5px rgb(240, 240, 240)")};
+  box-shadow: ${(props) => (props.active ? "" : "0 0 10px 5px rgb(240, 240, 240)")};
   flex: .5;
   font-weight: 700;
   font-size: 1.35rem;

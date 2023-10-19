@@ -3,7 +3,7 @@ import { FaSoap } from 'react-icons/fa';
 import { AiOutlineClose, AiOutlineDown } from 'react-icons/ai';
 import { HiBars3BottomLeft } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
-import ProfileImage from "../Assets/Images/Worker1.avif";
+import ProfileImage from "../Assets/Images/user_1177568.png";
 import axios from "axios";
 import { useQuery, useQueryClient } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
@@ -107,14 +107,14 @@ function NavBar() {
           {!nav ? <AiOutlineClose size={30} className='text-secondaryColor' /> : <HiBars3BottomLeft size={30} className='text-secondaryColor' />}
         </div>
 
-        <div className={!nav ? 'fixed left-0 top-0 w-[60%] bg-primaryColorDarker h-max p-4' : 'fixed left-[-100%] ease-in-out duration-500'}>
+        <div className={!nav ? 'fixed left-0 top-0 h-screen w- bg-textColor p-7' : 'fixed left-[-100%] ease-in-out duration-500'}>
           <span className='logo text-whiteColor text-4xl flex items-center'>Fresh <span className='text-secondaryColor flex '>F <span><FaSoap className="text-secondaryColor" size={30} /></span> ld</span> </span>
           <ul className=' flex flex-col justify-around gap-3 text-whiteColor text-[20px] my-5'>
-            <li>Home</li>
-            <li>About</li>
-            <li>Services</li>
-            <li>Prices</li>
-            <li>Contact</li>
+            <NavLink to="/" className={({ isActive }) => isActive ? 'active hover:text-secondaryColor ' : 'link'}>Home</NavLink>
+            <NavLink to="/about" className='hover:text-secondaryColor'>About</NavLink>
+            <NavLink to="/services" className='hover:text-secondaryColor' >Services</NavLink>
+            <NavLink to="/prices" className='hover:text-secondaryColor'>Prices</NavLink>
+            <NavLink to="/contact" className='hover:text-secondaryColor'>Contact</NavLink>
           </ul>
         </div>
       </div>

@@ -9,12 +9,12 @@ import CountStuffs from './CountStuffs'
 
 function About() {
   return (
-    <div className='pt-11'>
-      <HeroAbout />
+    <div className='pt-11 flex flex-col gap-5'>
+      {/* <HeroAbout /> */}
       <FewWords />
       <WhyChooseUs />
       <CountStuffs />
-      <Testimonials />
+      <Testimonials className="mb-11" />
       <Faq />
       <OurTeam />
     </div>

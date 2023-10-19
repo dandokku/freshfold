@@ -1,7 +1,7 @@
 import React from 'react'
 import Step1 from '../../Assets/food-delivery-man-riding-motorcycles-cartoon-art-illustration_56104-610.avif';
 import Step2 from '../../Assets/washing-machine-laundry-set-cartoon-icon-illustration-technology-fashion-icon-concept-isolated-flat-cartoon-style_138676-2150.avif';
-import Step3 from '../../Assets/food-delivery-man-riding-motorcycles-cartoon-art-illustration_56104-610.avif';
+import Step3 from '../../Assets/bath-towels-illustration-color-towel-piles-folded-rolled_33099-227.avif';
 import Step4 from '../../Assets/undraw_deliveries_2r4y.svg';
 
 

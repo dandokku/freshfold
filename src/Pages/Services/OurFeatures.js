@@ -5,7 +5,7 @@ import { PiShirtFoldedLight, PiRugLight } from 'react-icons/pi'
 
 function OurFeatures() {
   return (
-    <div className='m-14 p-10 flex flex-col gap-14 items-center'>
+    <div className='m-10 p-10 flex flex-col gap-14 items-center'>
       <div className='text-center'>
         <span className='text-secondaryColor font-semibold'>You'll love us</span>
         <h1 className='font-bold text-4xl text-headerTextColor'>Our Features</h1>

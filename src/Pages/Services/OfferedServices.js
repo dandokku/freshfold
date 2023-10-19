@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import { useQuery } from "react-query";
+import "./OfferedServices.css"
 
 // TODO This is a component showed in the Services Page, this component displays the Services offered by CleanCycle
 export default function OfferedServices() {
@@ -19,27 +20,21 @@ export default function OfferedServices() {
     const allServices = data?.data.map( service => {
         return <Link style={{textDecoration: "none", flex: ".5"}} to={`/services/${service._id}`}>
             <div key={service._id}>
-            <div className="bg-mainColor w-[300px] rounded-md p-5 hover:scale-105">
-                <h3 className="font-bold text-xl text-whiteColor">{service.serviceName}</h3>
-                <p className="text-shadColor mt-1">{service.description}</p>
-                
-                {/* <div>
-                    <BookServicesLink to={`/services/${service._id}`}>More Info</BookServicesLink>
-                </div> */}
+                <div className="your-custom-item">
+                    <a href="#" className="item-link w-fit p-5">
+                        <div className="item-bg"></div>
+                        <h3 className="item-title">{service.serviceName}</h3>
+                        <p className="item-description">{service.description}</p>
+                    </a>
+                </div>
 
-                {/* <PricesDiv>
-                    <span className="btn-mask">Book</span>
-                    <PricesLink to={`/services/${service._id}`}>Book</PricesLink>
-                </PricesDiv> */}
-
-            </div>
         </div>
         </Link>
     })
 
 
     return (
-        <div className="mt-14 p-10 flex flex-col items-center justify-center gap-8">
+        <div className="mt-20 p-10 flex flex-col items-center justify-center gap-8">
             <div className="text-center">
                 <h1 className="font-bold text-4xl text-headerTextColor">Our Services</h1>
                 <p className="text-secondaryColor">These are the services offered by freshfold:</p>

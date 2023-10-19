@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MdOutlineLocalLaundryService } from 'react-icons/md'
+import { MdOutlineCleaningServices, MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineIron, MdOutlineLocalLaundryService } from 'react-icons/md'
 import CountUp from 'react-countup';
 
 function CountStuffs() {
@@ -26,29 +26,29 @@ function CountStuffs() {
   }, []);
 
   return (
-    <div className='my-11 w-full bg-secondaryColor p-11 flex items-center justify-between gap-8' id="count-stuffs">
-      <div className={`flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
+    <div className='my-11 w-full bg-mainColor p-11 flex items-center justify-between gap-8' id="count-stuffs">
+      <div className={`hover:scale-105 flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
         <MdOutlineLocalLaundryService className='text-[200px] text-shadColor' />
-        <CountUp start={0} end={isVisible ? 10000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
-        <p className='text-whiteColor'>Shirts Washed</p>
+        <CountUp start={0} end={isVisible ? 4000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
+        <p className='text-whiteColor'>Clothes Washed</p>
       </div> 
           
-      <div className={`flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
-        <MdOutlineLocalLaundryService className='text-[200px] text-shadColor' />
-        <CountUp start={0} end={isVisible ? 10000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
-        <p className='text-whiteColor'>Shirts Washed</p>
+      <div className={`hover:scale-105 flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
+        <MdOutlineDryCleaning className='text-[200px] text-shadColor' />
+        <CountUp start={0} end={isVisible ? 9200 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
+        <p className='text-whiteColor'>Shirts Washed and Folded</p>
       </div> 
 
-      <div className={`flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
-        <MdOutlineLocalLaundryService className='text-[200px] text-shadColor' />
-        <CountUp start={0} end={isVisible ? 10000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
-        <p className='text-whiteColor'>Shirts Washed</p>
+      <div className={`hover:scale-105 flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
+        <MdOutlineIron className='text-[200px] text-shadColor' />
+        <CountUp start={0} end={isVisible ? 7920 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
+        <p className='text-whiteColor'>Shirts Ironed</p>
       </div> 
 
-      <div className={`flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
-        <MdOutlineLocalLaundryService className='text-[200px] text-shadColor' />
-        <CountUp start={0} end={isVisible ? 10000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
-        <p className='text-whiteColor'>Shirts Washed</p>
+      <div className={`hover:scale-105 flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
+        <MdOutlineDirtyLens className='text-[200px] text-shadColor' />
+        <CountUp start={0} end={isVisible ? 6000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
+        <p className='text-whiteColor'>Stained Removed</p>
       </div> 
     </div>
   )

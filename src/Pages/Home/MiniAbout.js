@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from '../../Assets/Images/about.jpg'
-import Image2 from '../../Assets/Images/about.jpg'
+import Image2 from '../../Assets/Images/about2.jpg'
 import { Link } from 'react-router-dom'
 import { MdOutlineCheck } from 'react-icons/md'
 import './MiniAbout.css';

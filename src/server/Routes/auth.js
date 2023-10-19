@@ -11,7 +11,7 @@ config.get("jwtPrivateKey")
 
 route.post("/", async (req, res) => {
     const { error } = validate(req.body);
-    if(error) return res.status(400).send(error.details[0]);
+    if(error) return res.status(400).send(error.details[0].message);
 
 
     const user = await Users.findOne({email: req.body.email});
@@ -21,10 +21,12 @@ route.post("/", async (req, res) => {
     if(!validPassword) return res.status(400).send("Invalid Email or password...");
 
     const token = user.generateAuthToken();
+    console.log(token)
     console.log("success");
     res.setHeader("Content-Type", "application/json");
     res.header("x-auth-token", token).send("Login Successfull...");
 })
+
 
 function validate(req) {
     const schema = Joi.object({

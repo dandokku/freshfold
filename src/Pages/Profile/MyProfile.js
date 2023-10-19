@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfImage from '../../Assets/Images/Worker1.avif'
+import ProfImage from '../../Assets/Images/user_1177568.png'
 import { useSelector } from "react-redux";
 
 function MyProfile(props) {

@@ -25,10 +25,7 @@ import History from './Pages/Profile/History';
 import { setUserLoginDetails } from './Pages/Features/userSlice';
 import SharedServiceLayout from './Pages/Services/SharedServiceLayout';
 import BookingHistory from './Pages/Profile/BookingHistory';
-
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-
+import ProtectedLogin from './Pages/Login/ProtectedLogin';
 
 function App() {
 
@@ -73,8 +70,7 @@ function App() {
   
   const initialState = {
     data: {
-      _id: null, // or some initial value
-      // other properties
+      _id: null,
     },
   };
   
@@ -106,11 +102,12 @@ function App() {
         </Route>
 
         <Route path='*' element={<NotFound />} />
-        <Route path='login' element={<Login />} />
-        {/* <Route path='login' element={<ProtectedLogin user={data} />}>
-          <Login />
-        </Route> */}
-        <Route path='register' element={<Register />} />
+
+          <Route path="/login" element={<ProtectedLogin user={data}>
+            <Login/>
+          </ProtectedLogin>} />
+        
+          <Route path='register' element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

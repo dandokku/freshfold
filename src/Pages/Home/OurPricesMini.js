@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdOutlineShareLocation } from "react-icons/md"
+import { MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineSanitizer, MdOutlineShareLocation, MdOutlineWash } from "react-icons/md"
 import {Link} from "react-router-dom"
 
 function OurPricesMini() {
@@ -12,21 +12,21 @@ function OurPricesMini() {
 
           <div className='flex gap-7 items-center justify-between'>
               <div className='hover:ring-1 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg'>
-                  <MdOutlineShareLocation className='text-[100px] text-secondaryColor'/>
-                  <p className='text-3xl'>From $2 per shirt</p>
-                  <span>Folding Service</span>
+                  <MdOutlineDryCleaning className='text-[100px] text-secondaryColor'/>
+                  <p className='text-3xl'>$2 per shirt...</p>
+                  <span>Iron and Folding</span>
               </div>
 
               <div className='hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-8 shadow-lg'>
-                  <MdOutlineShareLocation className='text-[100px] text-secondaryColor'/>
-                  <p className='text-3xl'>From $2 per shirt</p>
-                  <span>Folding Service</span>
+                  <MdOutlineWash className='text-[100px] text-secondaryColor'/>
+                  <p className='text-3xl'>$4 per jeans...</p>
+                  <span>Dry Cleaning</span>
               </div>
 
               <div className='hover:ring-1 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg'>
-                  <MdOutlineShareLocation className='text-[100px] text-secondaryColor'/>
-                  <p className='text-3xl'>From $2 per shirt</p>
-                  <span>Folding Service</span>
+                  <MdOutlineDirtyLens className='text-[100px] text-secondaryColor'/>
+                  <p className='text-3xl'>$1 per stain</p>
+                  <span>Stain Removal</span>
               </div>
           </div>
 

@@ -6,7 +6,7 @@ function Price() {
   return (
     <div className='pt-10'>
       <PriceList />
-      <Packages />
+      {/* <Packages /> */}
     </div>
   )
 }
