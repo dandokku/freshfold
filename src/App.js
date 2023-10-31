@@ -104,7 +104,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
 
           <Route path="/login" element={<ProtectedLogin user={data}>
-            <Login/>
+            <Login />
           </ProtectedLogin>} />
         
           <Route path='register' element={<Register />} />
