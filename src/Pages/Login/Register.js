@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import jwt_decode from "jwt-decode"
 import axios from "axios"
 import { useMutation } from 'react-query';
+import {MdOutlineSecurityUpdateWarning, MdOutlineWarningAmber} from "react-icons/md"
 
 function Register() {
   
@@ -116,7 +117,7 @@ function Register() {
       //     }
       //     else{
       //         validateFields.email = "";
-      //     }
+      //     }l
       // }
 
       if(event.target.name === "password"){
@@ -153,72 +154,65 @@ function Register() {
 
   return (
     <div className='relative m-0 p-0 w-[100%] h-[100%]'>
-      <img src={LogImage} alt="Login Image" className='w-[100%] h-[100vh]'/>
+      <img src={LogImage} alt="Login Image" className='w-[100%] h-[100vh]' />
+      
       <div className='p-10 bg-whiteColor absolute top-[15%] right-[25%] w-[50%] h-max rounded-md text-center'>
 
         <h1 className="text-headerTextColor font-semibold text-2xl mb-5">Register to Get Started</h1>
         <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center gap-4'>
 
-        {
-          userSuccess ? 
-          <p className="text-secondaryColor">{userSuccess}</p>
-          :
-          <p className="text-red-500">{userFailed}</p>
-        }
+          {/* Validation Feedbacks */}
+          {
+            userSuccess ? 
+            <p className="text-secon+aryColor">{userSuccess}</p>
+            :
+            <p className="text-red-500">{userFailed}</p>
+          }
+
           
           <div className='flex items-center gap-2 w-full'>
-            <div>
               <input type="text" name="firstName" onChange={handleFieldsChange} value={fieldsData.firstName} required placeholder='First Name' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
-              {
-                validateFieldsData.firstName && <p className="failed-validation">{validateFieldsData.firstName}</p>
-              }
-            </div>
+              
 
-            <div>
             <input type="text" name="lastName" onChange={handleFieldsChange} value={fieldsData.lastName} required id="" placeholder='Last Name' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
 
-            {
-            validateFieldsData.lastName && <p className="failed-validation">{validateFieldsData.lastName}</p>
-            }
-        </div>
-          
-          
           </div>
 
           <div className='flex items-center gap-2 w-full'>
+            <input type="number" name="phoneNo" onChange={handleFieldsChange} value={fieldsData.phoneNo} required id="" placeholder='Mobile No' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
 
-            <div>
-              <input type="number" name="phoneNo" onChange={handleFieldsChange} value={fieldsData.phoneNo} required id="" placeholder='Mobile No' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
-              {
-                  validateFieldsData.phoneNo && <p className="failed-validation">{validateFieldsData.phoneNo}</p>
-              }
-            </div>
-
-            <div>
-              <input type="email" name="email" onChange={handleFieldsChange} value={fieldsData.email} required id="" placeholder='Email' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
-              {
-                  validateFieldsData.email && <p className="failed-validation">{validateFieldsData.email}</p>
-              }
-            </div>
-
+            <input type="email" name="email" onChange={handleFieldsChange} value={fieldsData.email} required id="" placeholder='Email' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
           </div>
 
-          <div>
+          <MdOutlineExa />
             <input type="text" name="address" onChange={handleFieldsChange} value={fieldsData.address} required id="" placeholder='Address' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
-            {
-                validateFieldsData.address && <p className="failed-validation">{validateFieldsData.address}</p>
-            }
-          </div>
-          
 
-          <div>
             <input required={true} type="password" placeholder="Password" name="password" onChange={handleFieldsChange} value={fieldsData.password} className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
 
             {
-                validateFieldsData.password && <p className="failed-validation">{validateFieldsData.password}</p>
-            }
-          </div>
+            validateFieldsData.firstName && <p className="text-red-500">{validateFieldsData.firstName}</p>
+          }
+
+          {
+            validateFieldsData.lastName && <p className="text-red-500">{validateFieldsData.lastName}</p>
+          }
+
+          {
+            validateFieldsData.phoneNo && <p className="text-red-500">{validateFieldsData.phoneNo}</p>
+          }
+
+          {
+            validateFieldsData.email && <p className="text-red-500">{validateFieldsData.email}</p>
+          }
           
+          {
+            validateFieldsData.address && <p className="text-red-500">{validateFieldsData.address}</p>
+          }
+
+          {
+            validateFieldsData.password && <p className="text-red-500">{validateFieldsData.password}</p>
+          }
+
             <button type="submit" className='btnbtnbtn p-3 rounded-md border bg-textColor text-whiteColor w-full text-xl'>Sign Up</button>
         </form>
 

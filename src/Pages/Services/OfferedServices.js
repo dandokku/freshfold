@@ -39,7 +39,7 @@ export default function OfferedServices() {
                 <h1 className="font-bold text-4xl text-headerTextColor">Our Services</h1>
                 <p className="text-secondaryColor">These are the services offered by freshfold:</p>
             </div>
-            <div className="flex items-center justify-between text-mainColor text-center gap-5">
+            <div className="flex flex-wrap items-center justify-between text-mainColor text-center gap-5">
                 {allServices}
             </div>
         </div>

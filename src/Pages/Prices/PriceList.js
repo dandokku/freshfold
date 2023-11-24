@@ -27,13 +27,13 @@ export default function PriceList() {
 
     // ======== Looping through the prices in the array
     data?.data.forEach(price => {
-        if(price.group === "Iron and Folding"){
+        if(price.group === "Iron and Fold"){
             ironArray.push(price)
         }
         else if(price.group === "Dry Cleaning"){
             dryCleanArray.push(price)
         }
-        else{
+        else if(price.group === "Stain Removal"){
             stainRemovalArray.push(price)
         }
     });
@@ -52,7 +52,7 @@ export default function PriceList() {
             <div>
                 <TabList>
                     <TabButton active={activeTab === 1} onClick={() => handleTabClick(1)}>
-                    Ironing
+                    Iron and Fold
                     </TabButton>
                     <TabButton active={activeTab === 2} onClick={() => handleTabClick(2)}>
                     Dry Cleaning

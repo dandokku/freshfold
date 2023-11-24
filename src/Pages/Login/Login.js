@@ -3,7 +3,7 @@ import LogImage from "../../Assets/Images/vladimir-gladkov-eN9atEtVtcc-unsplash.
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useMutation } from "react-query";
-import splashkini from "../../Assets/Images/seongmin-park-p1qYb9pvLPU-unsplash.jpg";
+import splashkini from "../../Assets/Images/ok.jpg";
 
 function Login() {
   const [splashActive, setSplashActive] = useState(false);

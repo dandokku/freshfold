@@ -34,7 +34,6 @@ router.post("/", async (req, res) => {
     catch(ex){
         res.status(500).send(ex);
     }
-    // res.send("hi");
 })
 
 

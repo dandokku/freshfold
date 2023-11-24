@@ -22,7 +22,7 @@ const transporter = nodeMailer.createTransport({
 
 
 route.get("/", async (req, res) => {
-    const bookings = await Bookings.find().sort({_id: -1});
+    const bookingCache = await BookingCache.find().sort({_id: -1});
     res.send(bookings);
 })
 
@@ -65,10 +65,10 @@ route.get("/step2", async (req, res) => {
 
 route.get("/recentBookings", async (req, res) => {
     try{
-        const bookings = await Bookings.find()
+        const bookingCache = await BookingCache.find()
         .limit(5)
         .sort({_id: -1})
-        res.send(bookings);
+        res.send(bookingCache);
         // console.log(users)
     }
     catch(ex){
@@ -80,29 +80,29 @@ route.get("/user/:id", async (req, res) => {
 
     const userId = req.params.id;
     // console.log("userId", userId);
-    let booking;
+    let bookingCache;
     // ======== Trying to get the Booking Details for a specific User
     // * SO here i check the id ghotten from the request the id is the id of the user, and based on that i use a find to get every id that is the same as the userId, but here i have to use a new objectId so that it can be changed into an id first.
     try{
-         booking = await Bookings.find({ 'user._id': new mongoose.Types.ObjectId(userId) }).sort({_id: -1});
-        console.log(booking);
-        if(!booking) return res.status(404).send("No booking History");
+         bookingCache = await BookingCache.find({ 'user._id': new mongoose.Types.ObjectId(userId) }).sort({_id: -1});
+        console.log(bookingCache);
+        if(!bookingCache) return res.status(404).send("No booking History");
     }
     catch(ex){
         res.status(500).send(ex);
     }
     
 
-    res.send(booking);
+    res.send(bookingCache);
 })
 
 
 
 route.get("/:id", async (req, res) => {
-    const booking = await Bookings.findById(req.params.id);
-    if(!booking) return res.status(404).send("This booking data does not exist");
+    const bookingCache = await BookingCache.findById(req.params.id);
+    if(!bookingCache) return res.status(404).send("This booking data does not exist");
 
-    res.send(booking);
+    res.send(bookingCache);
 })
   
 
@@ -210,27 +210,27 @@ route.post('/webhook', express.raw({ type: 'application/json' }), async (request
             console.log("Booking Data:", bookingData);
 
             // Create an instance of the Bookings model and save it
-            const user = await Users.findOne({ email: bookingData.user.email });
-            const booking = new Bookings({
-                user: {
-                    _id: user ? user._id : new mongoose.Types.ObjectId(),
-                    firstName: bookingData.user.firstName,
-                    lastName: bookingData.user.lastName,
-                    address: bookingData.user.address,
-                    phoneNo: bookingData.user.phoneNo,
-                    email: bookingData.user.email
-                },
-                pickUpDate: bookingData.pickUpDate,
-                deliveryDate: bookingData.deliveryDate,
-                items: bookingData.items,
-                itemsTotalPrice: bookingData.itemsTotalPrice
-            });
+            // const user = await Users.findOne({ email: bookingData.user.email });
+            // const booking = new Bookings({
+            //     user: {
+            //         _id: user ? user._id : new mongoose.Types.ObjectId(),
+            //         firstName: bookingData.user.firstName,
+            //         lastName: bookingData.user.lastName,
+            //         address: bookingData.user.address,
+            //         phoneNo: bookingData.user.phoneNo,
+            //         email: bookingData.user.email
+            //     },
+            //     pickUpDate: bookingData.pickUpDate,
+            //     deliveryDate: bookingData.deliveryDate,
+            //     items: bookingData.items,
+            //     itemsTotalPrice: bookingData.itemsTotalPrice
+            // });
 
-            // Save the booking data to the Bookings model
-            await booking.save();
+            // // Save the booking data to the Bookings model
+            // await booking.save();
 
-            // Log success
-            console.log("Booking saved:", booking);
+            // // Log success
+            // console.log("Booking saved:", booking);
         }
 
         // Return a 200 response to acknowledge receipt of the event
@@ -243,15 +243,15 @@ route.post('/webhook', express.raw({ type: 'application/json' }), async (request
 
 
 route.put("/:id", async (req, res) => {
-    const booking = await Bookings.findByIdAndUpdate(req.params.id, {
+    const bookingCache = await BookingCache.findByIdAndUpdate(req.params.id, {
         $set: {
             status: req.body.status
         }
     }, { new: true })
 
-    if(!booking) return res.status(404).send("The Booking does not exist");
+    if(!bookingCache) return res.status(404).send("The Booking does not exist");
 
-    res.send(booking);
+    res.send(bookingCache);
 })
 
 function generateBookingId() {

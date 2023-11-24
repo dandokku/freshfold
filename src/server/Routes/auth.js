@@ -21,7 +21,6 @@ route.post("/", async (req, res) => {
     if(!validPassword) return res.status(400).send("Invalid Email or password...");
 
     const token = user.generateAuthToken();
-    // console.log(token)
     console.log("success");
     res.setHeader("Content-Type", "application/json");
     res.header("x-auth-token", token).send("Login Successfull...");

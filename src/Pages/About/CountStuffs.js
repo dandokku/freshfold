@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineCleaningServices, MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineIron, MdOutlineLocalLaundryService } from 'react-icons/md'
 import CountUp from 'react-countup';
+import Image1 from "../../Assets/Images/waldemar-cue0DuZ8cUU-unsplash.jpg"
 
 function CountStuffs() {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,7 +27,9 @@ function CountStuffs() {
   }, []);
 
   return (
-    <div className='my-11 w-full bg-mainColor p-11 flex items-center justify-between gap-8' id="count-stuffs">
+    <div className='relative h-[70vh] w-full'>
+      <img src={Image1} className='h-[70vh] w-full' />
+      <div className='absolute inset-0 w-full bg-linearBackground p-11 flex items-center justify-between gap-8' id="count-stuffs">
       <div className={`hover:scale-105 flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
         <MdOutlineLocalLaundryService className='text-[200px] text-shadColor' />
         <CountUp start={0} end={isVisible ? 4000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
@@ -50,7 +53,9 @@ function CountStuffs() {
         <CountUp start={0} end={isVisible ? 6000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
         <p className='text-whiteColor'>Stained Removed</p>
       </div> 
+      </div>
     </div>
+    
   )
 }
 

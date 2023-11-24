@@ -122,7 +122,7 @@ export default function EditProfile() {
     }
 
     return (
-      <div className="pt-44 flex items-center justify-center">
+      <div className="pt-36 flex items-center justify-center">
         <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-7 w-max">
           <h1 className="font-bold text-3xl text-headerTextColor">Edit Account Info..</h1>
 
