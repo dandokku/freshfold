@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import { useMutation } from "react-query";
 import { useQueryClient } from "react-query";
@@ -87,8 +87,7 @@ export default function EditProfile() {
         }
 
         setValidateFieldsData(validateFields)
-    }
-    // console.log(fieldsData)
+  } 
 
     // ======== Function to make an axios request to update the data
     async function updateUser(fields) {
@@ -97,7 +96,7 @@ export default function EditProfile() {
         return response.data;
       } catch (error) {
         console.error("PUT request failed:", error);
-        throw error; // Rethrow the error to propagate it to React Query's error handling.
+        throw error; 
       }
     }
     

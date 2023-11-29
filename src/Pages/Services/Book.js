@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
 import Select from 'react-select';
 import axios from 'axios';
@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from "./Modal";
-import styled from "styled-components";
 
 function Book() {
   
@@ -32,26 +31,15 @@ function Book() {
   const { mutate: bookingMutate, data } = useMutation(makeBookings, {
       onSuccess: (data) => {
           console.log(data);
-          // navigate(data.url)
           window.location = data.url
-          // setCheckoutUrl(data.data);
       },
       onError: (err) => {
           console.log(err)
       }
   });
 
-  // async function retrieveData(){
-  //     let bookingId = await data?.data;
-  //     return bookingId;
-  // }
-
   const user = useSelector((state) => state.user)
   console.log(user)
-
-  // React.useEffect(() => {
-
-  // })
 
   // ========== Function to Fetch a service
   function getService(id) {
@@ -78,14 +66,12 @@ function Book() {
   // ======== State Values for the Select and Input Fields
   const [selectFields, setSelectFields] = React.useState([]);
   const [inputFields, setInputFields] = React.useState([]);
-  const [firstCheck, setFirstCheck] = React.useState(1);
   const [fieldsData, setfieldsData] = React.useState({
       firstName: "",
       lastName: "",
       address: "",
       phoneNo: "",
       email: "",
-    //   specialInstructions: ""
   })
   const [modalsBookingDetails, setModalsBookingDetails] = React.useState({});
 
@@ -174,7 +160,6 @@ function Book() {
 
       // NB Storing the data from the items array into a new totalPriceArray
       items.forEach(item => {
-          // item.price 
           totalPriceArray.push({
               priceName: item.label,
               quantity: item.quantity,
@@ -190,11 +175,6 @@ function Book() {
       setModalOpenClass("popup-modal active")
       
   }
-
-  
-
-  // console.log(fieldsData)
-  // console.log("isduip: ", isDuplicateSelectFields)
 
   // ========= Function to handle Submit of Form Data
   async function handleSubmit(event) {
@@ -361,7 +341,6 @@ function Book() {
     boxShadow: state.isFocused ? `0 0 0 1px #34CCA1` : "",
     "&:hover": {
         borderColor: state.isFocused ? "#34CCA1" : "#d3d3d3",
-        // boxShadow: state.isFocused ? "0 0 0 3px #E9B6097b" : "",
     }
     }),
     option: (provided, state) => ({
@@ -371,7 +350,6 @@ function Book() {
         backgroundColor: state.isSelected ? secondary : '#E9B6092b',
     },
     ':focus': {
-        // boxShadow: '0 0 0 3px #E9B6097b',
         borderColor: "#e9b609"
     }
     }),
@@ -431,6 +409,7 @@ function Book() {
       })
   })
 
+
   return (
     <div className='pt-28 p-11'>
       <h1 className='text-textColor font-bold text-3xl text-center mb-10'>SCHEDULE A PICKUP</h1>
@@ -458,18 +437,8 @@ function Book() {
           <DatePicker
             selected={deliveryDate} onChange={handleDateChangeDelivery}
             className="w-[625px] border border-mainColor focus:border-secondaryColor flex-[0.5] p-1 py-2 rounded-md outline-none text-mainColor" placeholderText="Delivery Date" minDate={getMinDeliveryDate()}
-            // showTimeSelect // dateFormat="MM/dd/yyyy hh:mm aa"
           />
         </div>
-
-        {/* <input type="text" name="" id="" placeholder='Special Instructions, Example: Wash with hot water' className='border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor' onChange={handleInputChange} /> */}
-        
-        {/* <select name="" id="" placeholder='Select Service' className='border border-mainColor focus:border-secondaryColor w-full p-1 py-2 rounded-md outline-none text-mainColor'>
-          <option value="">Welp</option>
-          <option value="">Welp</option>
-          <option value="">Welp</option>
-          <option value="">Welp</option>
-        </select> */}
 
         {selectFields.map((selectField, index) => (
           <div key={selectField.id} className=' mt-4 flex gap-6 items-center justify-between'>
@@ -485,7 +454,6 @@ function Book() {
           <div>
               <input required={true}
                   type="number"
-                  // value={inputFields[index] ? inputFields[index].value : ""}
                   onChange={(event) => handleFieldsData(index, event)}
                   name={selectField.selectedOption?.label}  min={1} max={200} className='p-2 border border-mainColor focus:border-secondaryColor rounded-md w-max outline-none' placeholder='Quantity'
               />

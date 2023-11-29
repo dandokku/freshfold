@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineSanitizer, MdOutlineShareLocation, MdOutlineWash } from "react-icons/md"
+import { MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineWash } from "react-icons/md"
 import {Link} from "react-router-dom"
 
 function OurPricesMini() {
@@ -30,7 +30,7 @@ function OurPricesMini() {
               </div>
           </div>
 
-          <Link className='btnbtn border border-textColor rounded-md w-max p-4 px-6 bg-textColor text-whiteColor  hover:bg-whiteColor hover:text-textColor'>See all Prices</Link>
+          <Link to="./about" className='btnbtn border border-textColor rounded-md w-max p-4 px-6 bg-textColor text-whiteColor  hover:bg-whiteColor hover:text-textColor'>See all Prices</Link>
     </div>
   )
 }

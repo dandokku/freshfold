@@ -3,7 +3,6 @@ import React from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 
-// TODO This Page shows the full price list in the site, a tab menu to open different price list for services
 export default function PriceList() {
 
     const [activeTab, setActiveTab] = React.useState(1);
@@ -16,8 +15,6 @@ export default function PriceList() {
         return axios.get("http://localhost:9000/api/prices")
     }
 
-    // api/prices/:groupName
-
     const { data } = useQuery('prices', getPrices);
 
     // ======== Creating An Array to store Prices based on their Services
@@ -27,7 +24,7 @@ export default function PriceList() {
 
     // ======== Looping through the prices in the array
     data?.data.forEach(price => {
-        if(price.group === "Iron and Fold"){
+        if(price.group === "Iron and Folding"){
             ironArray.push(price)
         }
         else if(price.group === "Dry Cleaning"){
@@ -113,7 +110,6 @@ const primary = "#34347C";
 const secondary = "#34CCA1";
 const bg = "#F4F4F4";
 const borderRad = "5px";
-// const yellowBtnHover = "#f7cb39";
 const gray = "#7A8C87";
 
 const Container = styled.div`

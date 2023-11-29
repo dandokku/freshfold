@@ -44,8 +44,6 @@ function MyProfile(props) {
         <Link to='./editprofile' className='btnbtn p-3 px-7 bg-textColor text-whiteColor rounded-md hover:bg-secondaryColor cursor-pointer w-max'>Edit Profile</Link>
         
         
-
-
       </div>
 
     </div>

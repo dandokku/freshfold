@@ -58,23 +58,15 @@ body::-webkit-scrollbar{
   font-weight: 700;
 }
 
-
-/* .headerLower{
-  background-color: ;
-} */
-
 .active{
-  color: #34CCA1;
+  color: #33cca1;
+  /* color: #E9B609; */
   font-weight: 500;
 }
-
-
 
 .link{
   color: #05010a ;
 }
-
-
 
 
 @keyframes ani {
@@ -87,11 +79,6 @@ body::-webkit-scrollbar{
     mask-position: 100% 0;
   }
 }
-
-/* .textshadow{
-  text-shadow: #20d66c 4px 4px 5px;
-} */
-
 
 /* Hover effect three */
 .btnbtn, .btnbtnbtn {
@@ -137,17 +124,6 @@ body::-webkit-scrollbar{
   transition: all .5s ease-in;
   
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Shadowy border class */

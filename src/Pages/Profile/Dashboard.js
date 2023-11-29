@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ProfileImage from "../../Assets/Images/Worker1.avif"
 import { NavLink, useLocation, useMatch, Link } from 'react-router-dom'
 import { MdOutlineAccountCircle, MdOutlineEdit, MdOutlineHistory } from "react-icons/md"
 import { FaSoap, FaCog } from 'react-icons/fa'
@@ -34,26 +33,6 @@ function Dashboard(props) {
     console.log(props.sidebar)
 
     const user = useSelector((state) => state.user);
-    // function navLinkStyles({ isActive }) {
-    //     return {
-    //       color: isActive ? `${secondary}` : gray,
-    //       background: isActive ? `#E9B6091b` : "transparent",
-    //       textDecoration: 'none',
-    //       position: 'relative',
-    //       letterSpacing: '1.6px',
-    //       fontSize: '0.9rem',
-    //       width: '100%',
-    //       display: 'flex',
-    //       alignItems: 'center',
-    //       marginLeft: 0,
-    //       gap: '0.5rem',
-    //       textAlign: "start",
-    //       '&:hover': {
-    //         background: "#E9B6091b",
-    //         color: `${secondary}`,
-    //       },
-    //     };
-    //   }
 
       const matchProfile = useMatch('/profile');
       const matchHistory = useMatch('/Profile/History/*');
@@ -84,14 +63,7 @@ function Dashboard(props) {
           <h1>Booking History</h1>
         </NavLink>
       </div>
-
-      {/* <div className='flex items-center gap-3'>
-        <img src={ProfileImage} alt="" className='w-[70px] h-[70px] rounded-[50%]' />
-        <h1 className='text-secondaryColor font-semibold text-xl'>
-          {user.firstName} {user.lastName}
-        </h1>
-      </div> */}
-
+      
       <div className='relative group' onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown} >
               <div className='flex gap-1 items-center'>
                 <FaCog className='text-secondaryColor text-4xl' />

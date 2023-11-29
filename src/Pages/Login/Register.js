@@ -1,10 +1,10 @@
 import React from 'react'
 import LogImage from "../../Assets/Images/vladimir-gladkov-eN9atEtVtcc-unsplash.jpg";
 import { Link, useNavigate } from 'react-router-dom'
-import jwt_decode from "jwt-decode"
 import axios from "axios"
 import { useMutation } from 'react-query';
-import {MdOutlineSecurityUpdateWarning, MdOutlineWarningAmber} from "react-icons/md"
+import { PiWarningCircle } from "react-icons/pi"
+import { FaSoap } from 'react-icons/fa';
 
 function Register() {
   
@@ -111,15 +111,6 @@ function Register() {
           
       }
 
-      // if(event.target.name === "email"){
-      //     if(event.target.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
-      //         validateFields.email = "Email is not valid";
-      //     }
-      //     else{
-      //         validateFields.email = "";
-      //     }l
-      // }
-
       if(event.target.name === "password"){
           if(event.target.value.length < 3){
               validateFields.password = "Password must be above 3 characters";
@@ -156,7 +147,11 @@ function Register() {
     <div className='relative m-0 p-0 w-[100%] h-[100%]'>
       <img src={LogImage} alt="Login Image" className='w-[100%] h-[100vh]' />
       
-      <div className='p-10 bg-whiteColor absolute top-[15%] right-[25%] w-[50%] h-max rounded-md text-center'>
+      <div className='p-10 bg-whiteColor absolute top-[10%] right-[25%] w-[50%] h-max rounded-md text-center'>
+
+        <Link to='/'>
+          <span className='logo text-secondaryColor font-bold text-2xl flex justify-center items-center max-sm:text-xl mb-2'>Fresh <span className='text-secondaryColor flex '>F <span><FaSoap className="text-secondaryColor" size={30} /></span> ld</span> </span>
+        </Link>
 
         <h1 className="text-headerTextColor font-semibold text-2xl mb-5">Register to Get Started</h1>
         <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center gap-4'>
@@ -184,33 +179,32 @@ function Register() {
             <input type="email" name="email" onChange={handleFieldsChange} value={fieldsData.email} required id="" placeholder='Email' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
           </div>
 
-          <MdOutlineExa />
             <input type="text" name="address" onChange={handleFieldsChange} value={fieldsData.address} required id="" placeholder='Address' className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
 
             <input required={true} type="password" placeholder="Password" name="password" onChange={handleFieldsChange} value={fieldsData.password} className='p-2 w-full rounded-md outline-0 bg-transparent border border-mainColor focus:border-secondaryColor' />
 
             {
-            validateFieldsData.firstName && <p className="text-red-500">{validateFieldsData.firstName}</p>
+            validateFieldsData.firstName && <p className="text-red-500 flex gap-2 items-center"><PiWarningCircle /> {validateFieldsData.firstName}</p>
           }
 
           {
-            validateFieldsData.lastName && <p className="text-red-500">{validateFieldsData.lastName}</p>
+            validateFieldsData.lastName && <p className="text-red-500 flex gap-2 items-center"><PiWarningCircle /> {validateFieldsData.lastName}</p>
           }
 
           {
-            validateFieldsData.phoneNo && <p className="text-red-500">{validateFieldsData.phoneNo}</p>
+            validateFieldsData.phoneNo && <p className="text-red-500 flex gap-2 items-center"><PiWarningCircle /> {validateFieldsData.phoneNo}</p>
           }
 
           {
-            validateFieldsData.email && <p className="text-red-500">{validateFieldsData.email}</p>
+            validateFieldsData.email && <p className="text-red-500 flex gap-2 items-center"><PiWarningCircle /> {validateFieldsData.email}</p>
           }
           
           {
-            validateFieldsData.address && <p className="text-red-500">{validateFieldsData.address}</p>
+            validateFieldsData.address && <p className="text-red-500 flex gap-2 items-center"><PiWarningCircle /> {validateFieldsData.address}</p>
           }
 
           {
-            validateFieldsData.password && <p className="text-red-500">{validateFieldsData.password}</p>
+            validateFieldsData.password && <p className="text-red-500 flex gap-2 items-center"><PiWarningCircle /> {validateFieldsData.password}</p>
           }
 
             <button type="submit" className='btnbtnbtn p-3 rounded-md border bg-textColor text-whiteColor w-full text-xl'>Sign Up</button>

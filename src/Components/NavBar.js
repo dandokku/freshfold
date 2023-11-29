@@ -67,7 +67,7 @@ function NavBar() {
   }, []);
 
   return (
-    <header className='fixed z-40 w-full bg-whiteColor drop-shadow-sm flex items-center justify-between p-6'>
+    <header className='fixed z-[999999] w-full bg-whiteColor drop-shadow-sm flex items-center justify-between p-6'>
       <div className='flex'>
         <Link to='/'>
           <span className='logo text-secondaryColor font-bold text-3xl flex items-center max-sm:text-xl'>Fresh <span className='text-secondaryColor flex '>F <span><FaSoap className="text-secondaryColor" size={30} /></span> ld</span> </span>

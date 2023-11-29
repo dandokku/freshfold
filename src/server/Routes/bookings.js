@@ -23,7 +23,7 @@ const transporter = nodeMailer.createTransport({
 
 route.get("/", async (req, res) => {
     const bookingCache = await BookingCache.find().sort({_id: -1});
-    res.send(bookings);
+    res.send(bookingCache);
 })
 
 route.post("/step1", async (req, res) => {
@@ -69,7 +69,6 @@ route.get("/recentBookings", async (req, res) => {
         .limit(5)
         .sort({_id: -1})
         res.send(bookingCache);
-        // console.log(users)
     }
     catch(ex){
         res.status(500).send("Error: ", ex);
@@ -79,7 +78,6 @@ route.get("/recentBookings", async (req, res) => {
 route.get("/user/:id", async (req, res) => {
 
     const userId = req.params.id;
-    // console.log("userId", userId);
     let bookingCache;
     // ======== Trying to get the Booking Details for a specific User
     // * SO here i check the id ghotten from the request the id is the id of the user, and based on that i use a find to get every id that is the same as the userId, but here i have to use a new objectId so that it can be changed into an id first.
@@ -130,7 +128,6 @@ route.post("/", async (req, res) => {
         },
         pickUpDate: req.body.pickUpDate,
         deliveryDate: req.body.deliveryDate,
-        // specialInstructions: req.body.specialInstructions,
         items: req.body.items,
         itemsTotalPrice: req.body.itemsTotalPrice
     }

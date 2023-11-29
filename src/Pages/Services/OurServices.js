@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdDryCleaning, MdIron, MdOutlineDryCleaning, MdOutlineIron, MdOutlineLocalLaundryService, MdOutlinePunchClock, MdOutlineSelfImprovement } from 'react-icons/md'
+import { MdOutlineDryCleaning, MdOutlineIron, MdOutlineLocalLaundryService, MdOutlinePunchClock, MdOutlineSelfImprovement } from 'react-icons/md'
 import { PiShirtFoldedThin } from 'react-icons/pi'
 
 function OurServices() {

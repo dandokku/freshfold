@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdOutlineCheck, MdOutlineCrueltyFree, MdOutlineCurrencyBitcoin, MdOutlineExplore, MdOutlineMoney } from 'react-icons/md'
+import { MdOutlineCheck, MdOutlineCrueltyFree, MdOutlineMoney } from 'react-icons/md'
 
 function WhyChooseUs() {
   return (

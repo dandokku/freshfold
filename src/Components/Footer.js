@@ -1,6 +1,5 @@
 import React from 'react'
-import {FaInstagramSquare, FaFacebookSquare, FaTwitterSquare, FaWhatsappSquare } from 'react-icons/fa'
-import { FaSoap } from 'react-icons/fa';
+import {FaInstagramSquare, FaFacebookSquare, FaTwitterSquare, FaWhatsappSquare, FaSoap } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 
 
@@ -21,7 +20,8 @@ function Footer() {
 
       <div>
         <h1 className='font-bold text-xl'>Laundry made easy: </h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam deserunt tenetur qui exercitationem autem sunt nostrum, eum inventore perferendis vel repudiandae placeat. Animi quod maxime incidunt deleniti veniam laborum sit.</p>
+        <p>Experience the convenience of our innovative laundry solutions. We understand the importance of simplicity and efficiency in your daily routine.</p>
+
       </div>
 
       <div className='flex items-center justify-between max-sm:flex-col max-sm:items-center max-sm:gap-5 max-sm:justify-center max-sm:text-center'>

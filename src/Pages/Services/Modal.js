@@ -13,7 +13,6 @@ export default function Modal(props) {
     let totalPrice = 0;
     let verifiedItems;
 
-    // console.log(props?.totalPriceItems);
     // ======== Getting the values for the totalPrice and verifiedItems
     if(props.totalPriceItems){
         // Nb looping through the totalPriceItems props sent from the Service.js file
@@ -39,7 +38,6 @@ export default function Modal(props) {
     // ========= Variable to serve as the total Items picked for wash by the user
     const verifiedLength = props?.totalPriceItems?.length;
 
-    // console.log(totalPrice)
 
     return (
         <Container>
@@ -55,16 +53,6 @@ export default function Modal(props) {
                     </div>
 
                     <Items>
-                        {/* <Item>
-                            <div>
-                                <img src={require("../assets/price-images/shirts-price.jpg")}></img>
-                            </div>
-                            <div>
-                                <h2>Shirts</h2>
-                                <p>9 x <span>$10</span></p>
-                            </div>
-
-                        </Item> */}
                         {verifiedItems}
                     </Items>
 

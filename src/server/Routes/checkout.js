@@ -29,7 +29,6 @@ router.post("/", async (req, res) => {
             cancel_url: "http://localhost:3000/services/",
         })
         res.json({url: session.url})
-        // res.send("Working");
     }
     catch(ex){
         res.status(500).send(ex);

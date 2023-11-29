@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from '../../Assets/Images/about.jpg'
 import Image2 from '../../Assets/Images/about2.jpg'
-import { Link } from 'react-router-dom'
 import { MdOutlineCheck } from 'react-icons/md'
 import '../Home/MiniAbout.css';
 
@@ -47,8 +46,6 @@ function FewWords() {
             <p>100% Satisfaction Guarantee</p>
           </div>
 
-          {/* <Link to='./about' className='btnbtn'>Learn More</Link> */}
-          {/* <Link to='./about' className='btnbtn border border-textColor py-3 px-7 w-max rounded-md'>Learn More</Link> */}
         </div>
 
 

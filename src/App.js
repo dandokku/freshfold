@@ -19,13 +19,16 @@ import Book from './Pages/Services/Book';
 import SharedProfile from './Pages/Profile/SharedProfile';
 import MyProfile from './Pages/Profile/MyProfile';
 import EditProfile from './Pages/Profile/EditProfile';
-import History from './Pages/Profile/History';
+
+
 
 // Redux imports
 import { setUserLoginDetails } from './Pages/Features/userSlice';
 import SharedServiceLayout from './Pages/Services/SharedServiceLayout';
 import BookingHistory from './Pages/Profile/BookingHistory';
 import ProtectedLogin from './Pages/Login/ProtectedLogin';
+import History from './Pages/Profile/History';
+
 
 function App() {
 
@@ -74,9 +77,6 @@ function App() {
     },
   };
   
-  const [suser, setUser] = React.useState(initialState);
-
-  
   return (
     <BrowserRouter>
       <Routes>
@@ -109,6 +109,8 @@ function App() {
         
           <Route path='register' element={<Register />} />
       </Routes>
+
+    
     </BrowserRouter>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MdOutlineCleaningServices, MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineIron, MdOutlineLocalLaundryService } from 'react-icons/md'
+import { MdOutlineDirtyLens, MdOutlineDryCleaning, MdOutlineIron, MdOutlineLocalLaundryService } from 'react-icons/md'
 import CountUp from 'react-countup';
 import Image1 from "../../Assets/Images/waldemar-cue0DuZ8cUU-unsplash.jpg"
 
@@ -23,7 +23,7 @@ function CountStuffs() {
     };
 
     const observer = new IntersectionObserver(callback, options);
-    observer.observe(document.querySelector('#count-stuffs')); // Replace with the correct ID or ref
+    observer.observe(document.querySelector('#count-stuffs')); 
   }, []);
 
   return (
@@ -51,7 +51,7 @@ function CountStuffs() {
       <div className={`hover:scale-105 flex flex-col items-center gap-2 ${isVisible ? '' : 'opacity-0'}`}>
         <MdOutlineDirtyLens className='text-[200px] text-shadColor' />
         <CountUp start={0} end={isVisible ? 6000 : 0} duration={3} separator="," className='text-whiteColor font-bold text-6xl' />
-        <p className='text-whiteColor'>Stained Removed</p>
+        <p className='text-whiteColor'>Stains Removed</p>
       </div> 
       </div>
     </div>

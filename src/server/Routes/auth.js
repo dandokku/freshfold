@@ -3,7 +3,6 @@ const Joi = require("joi");
 const route = express.Router();
 const bcrypt = require("bcrypt");
 const { Users } = require("../Models/users");
-const jwt = require("jsonwebtoken");
 const config = require("config");
 const _ = require("lodash");
 

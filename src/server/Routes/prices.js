@@ -1,8 +1,6 @@
 const express = require("express");
 const route = express.Router();
 const { Prices, validatePrice } = require("../Models/prices");
-const Joi = require("joi")
-const { Services } = require("../Models/services");
 
 // Get request for all the prices
 route.get("/", async (req, res) => {
@@ -48,11 +46,6 @@ route.post("/", async (req, res) => {
 
 
 route.put("/:id", async (req, res) => {
-    const { error } = validatePriceUpdate(res.body);
-
-    if (error) {
-        return res.status(400).send(error.details[0].message)
-    }
 
     const price = await Prices.findByIdAndUpdate(req.params.id, {
         $set: {

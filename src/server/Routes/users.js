@@ -63,7 +63,6 @@ route.post("/", async (req, res) => {
         return res.status(400).send(ex);
     }
 
-    // * Selecting the properties to be sent back
     res.send(_.pick(user, ["_id", "firstName", "lastName", "address", "phoneNo", "email", "password"]));
 
     console.log(user)

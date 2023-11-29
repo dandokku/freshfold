@@ -27,8 +27,6 @@ const userSlice = createSlice({
                 state.password = action.payload.password || null;
             } else {
                 console.log("Welp")
-                // Handle the case where action.payload is undefined
-                // You may choose to set defaults or take other appropriate action here.
             }
         },
         setUserSignOut: (state) => {

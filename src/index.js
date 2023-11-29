@@ -5,20 +5,21 @@ import App from './App';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { Provider } from 'react-redux';
 import store from "./Pages/App/store"
-import { ReactQueryDevtools} from "react-query/devtools"
-
+import { ReactQueryDevtools } from "react-query/devtools"
+import ScrollToTopButton from './Components/ScrollToTopButton';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-        <ReactQueryDevtools/>
-      </QueryClientProvider>
+    <QueryClientProvider client={queryClient} className="relative">
+      <Provider store={store}>
+        <App />
+      </Provider>
+      <ScrollToTopButton className="absolute top-0" />
+      <ReactQueryDevtools/>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

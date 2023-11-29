@@ -47,7 +47,6 @@ function MiniAbout() {
             <p>100% Satisfaction Guarantee</p>
           </div>
 
-          {/* <Link to='./about' className='btnbtn'>Learn More</Link> */}
           <Link to='./about' className='btnbtn border border-textColor py-3 px-7 w-max rounded-md'>Learn More</Link>
         </div>
 

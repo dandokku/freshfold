@@ -56,6 +56,10 @@ const bookingSchema = mongoose.Schema({
     itemsTotalPrice: {
         type: Number,
         required: true
+    },
+    status: {
+        type: String,
+        default: "Pending"
     }
 })
 
@@ -70,7 +74,6 @@ function validateBookings(booking) {
         email: Joi.string().min(5).max(255).required(),
         pickUpDate: Joi.date().required(),
         deliveryDate: Joi.date().required(),
-        // specialInstructions: Joi.string().min(2).max(255).optional(),
         items: Joi.array().required(),
         itemsTotalPrice: Joi.number().required(),
     })

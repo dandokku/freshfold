@@ -30,22 +30,6 @@ const Services = mongoose.model("Services", serviceSchema)
 // createService()
 
 
-// const newService = new Services({
-//     serviceName: "Iron and Folding",
-//     description: "We will iron and fold your clothes"
-// });
-
-// // Save the new service document
-// newService.save()
-//     .then(savedService => {
-//         console.log(savedService);
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     });
-
-
-
 function validateService(service) {
     const schema = Joi.object({
         serviceName: Joi.string().min(3).max(100).required(),

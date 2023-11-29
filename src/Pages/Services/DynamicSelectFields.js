@@ -27,7 +27,6 @@ export default function DynamicSelectFields() {
   // ============== Submitting The form
   function handleSubmit(event) {
     event.preventDefault();
-    // console.log(selectFields, inputFields);
 
     let items = []
 
@@ -97,8 +96,6 @@ export default function DynamicSelectFields() {
 
     // * We loop through each price and then store its name and id inside the priceList
     data?.data.forEach((price, index) => {
-      // if(price.group === group.name){
-        // * then push
         priceList.push({
           priceId: price._id,
           value: index + 1,
