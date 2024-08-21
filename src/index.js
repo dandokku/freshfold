@@ -17,7 +17,7 @@ root.render(
       <Provider store={store}>
         <App />
       </Provider>
-      <ScrollToTopButton className="absolute top-0" />
+      {/* <ScrollToTopButton className="" /> */}
       <ReactQueryDevtools/>
     </QueryClientProvider>
   </React.StrictMode>

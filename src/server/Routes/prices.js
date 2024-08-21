@@ -67,4 +67,21 @@ route.put("/:id", async (req, res) => {
 //     const price = await Prices.findByIdAndRemove(req.params.id);
 // })
 
+
+route.delete("/:id", async (req, res) => {
+    try {
+        const price = await Prices.findByIdAndRemove(req.params.id);
+
+        if (!price) {
+            return res.status(404).send("The Price does not exist, sire");
+        }
+
+        res.status(200).send({ message: "Price successfully deleted", deletedPrice: price });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
 module.exports = route

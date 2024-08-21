@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: true }));
 
 // Set CORS headers first
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000', 'http://localhost:3001');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Expose-Headers', 'x-auth-token, x-auth-admin-token');
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 
 // Enable CORS middleware
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
     credentials: true,
 }));
 
