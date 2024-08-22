@@ -29,7 +29,6 @@
     "react-redux": "^8.1.2",
     "react-router": "^6.15.0",
     "react-router-dom": "^6.15.0",
-    "react-router-scroll-top": "^0.3.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.5",
     "redux": "^4.2.1",
