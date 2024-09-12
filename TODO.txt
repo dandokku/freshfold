@@ -1,10 +1,7 @@
 Fix Responsiveness:
 - Navbar
-- About
 - Services
 - Prices
-- Login
-- Contact
 - Features
 - Profile
 

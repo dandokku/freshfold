@@ -3,7 +3,7 @@ import DisImage from '../../Assets/Images/waldemar-Db4d6MRIXJc-unsplash.jpg';
 
 function OurCoupons() {
   return (
-    <div className='h-[60vh] relative'>
+    <div className='hidden md:block h-[60vh] relative'>
       <img src={DisImage} alt="" className='h-full w-full' />
       <div className='bg-linearBackground w-full h-full absolute inset-0 p-10'>
         <div className='absolute top-[20%] w-[50%] flex flex-col gap-10 justify-center'>

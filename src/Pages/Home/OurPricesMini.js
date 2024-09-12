@@ -52,21 +52,21 @@ function OurPricesMini() {
 
       <div className='flex flex-wrap gap-7 items-center justify-center'>
         {/* Price Card 1 */}
-        <div className='hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg w-[200px] md:w-[250px]'>
+        <div className='text-center hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg w-[200px] md:w-[250px]'>
           <MdOutlineDryCleaning className='text-[80px] md:text-[100px] text-secondaryColor' />
-          <p className='text-2xl md:text-3xl'>$2 per shirt...</p>
+          <p className='text-2xl md:text-3xl'>$2 per shirt</p>
           <span className='text-sm md:text-base'>Iron and Folding</span>
         </div>
 
         {/* Price Card 2 */}
-        <div className='hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg w-[200px] md:w-[250px]'>
+        <div className='text-center hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg w-[200px] md:w-[250px]'>
           <MdOutlineWash className='text-[80px] md:text-[100px] text-secondaryColor' />
-          <p className='text-2xl md:text-3xl'>$4 per jeans...</p>
+          <p className='text-2xl md:text-3xl'>$4 per jeans</p>
           <span className='text-sm md:text-base'>Dry Cleaning</span>
         </div>
 
         {/* Price Card 3 */}
-        <div className='hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg w-[200px] md:w-[250px]'>
+        <div className='text-center hover:ring-2 ring-secondaryColor rounded-md flex flex-col items-center gap-3 p-5 shadow-lg w-[200px] md:w-[250px]'>
           <MdOutlineDirtyLens className='text-[80px] md:text-[100px] text-secondaryColor' />
           <p className='text-2xl md:text-3xl'>$1 per stain</p>
           <span className='text-sm md:text-base'>Stain Removal</span>

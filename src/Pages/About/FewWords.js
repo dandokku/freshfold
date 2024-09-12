@@ -6,7 +6,7 @@ import '../Home/MiniAbout.css';
 
 function FewWords() {
   return (
-    <div className='m-6 my-[6rem] md:m-9 mini-about-container relative'>
+    <div className='m-6 md:mt-14 my-[6rem] md:m-9 mini-about-container relative'>
       {/* Floating bubbles for background effect */}
       <div className='bubble' style={{ left: '10%', top: '20%' }}></div>
       <div className='bubble' style={{ left: '50%', top: '30%' }}></div>
