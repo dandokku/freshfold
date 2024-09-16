@@ -11,7 +11,7 @@ function About() {
     <div className='pt-11 flex flex-col gap-5'>
       <FewWords />
       <WhyChooseUs />
-      <CountStuffs className="hidden 2xl:block" />
+      {/* <CountStuffs className="hidden 2xl:block" /> */}
       <Testimonials className="mb-11" />
       <Faq />
       <OurTeam />

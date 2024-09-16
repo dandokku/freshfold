@@ -6,3 +6,4 @@ Fix Responsiveness:
 - Profile
 
 - Change the picture of the Founder in About > Our Team
+- Add arrows to the get it done section
