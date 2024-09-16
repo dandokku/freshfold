@@ -40,7 +40,7 @@ import { MdOutlineCheck, MdOutlineCrueltyFree, MdOutlineMoney } from 'react-icon
 
 function WhyChooseUs() {
   return (
-    <div className='flex flex-col items-center justify-center gap-10 mt-16 mb-20 p-6'>
+    <div className='flex flex-col items-center justify-center gap-10 mt-16 mb-10 p-6'>
       <div className='text-center'>
         <span className='text-secondaryColor'>Our Advantages</span>
         <h1 className='text-headerTextColor font-bold text-4xl md:text-5xl'>Why Choose Us</h1>
