@@ -114,6 +114,7 @@ const gray = "#7A8C87";
 
 const Container = styled.div`
     padding: 2rem;
+    margin-top: 5rem;
 
     .tabContents{
         display: flex;
