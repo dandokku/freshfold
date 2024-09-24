@@ -5,6 +5,7 @@ Fix Responsiveness:
 - Features
 - Profile
 - register page ain't fully responsive
+- Add animations where it's needed
 
 MINI TASKS
 - Change the picture of the Founder in About > Our Team

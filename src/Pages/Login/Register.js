@@ -339,7 +339,7 @@ function Register() {
 
   async function postUser(fields) {
     try {
-      const response = await axios.post("http://localhost:9000/api/users", fields);
+      const response = await axios.post("https://freshfoldserver.onrender.com/api/users", fields);
       return response.data;
     } catch (error) {
       console.error(error);
