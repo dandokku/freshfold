@@ -1,0 +1,7 @@
+Remember to create a page for Terms of Service and Privacy Policy 
+
+The services and pricing should not be accessible unless a user is logged in
+
+The Profile Page should not be accessible unless a user is logged in
+
+Every Time i refresh in the users profile page, the data always dissapear

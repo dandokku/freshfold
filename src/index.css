@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  letter-spacing: 0.1px;
+  transition: .5s ease-in;
+}
+
+body {
+  margin: 0;
+  font-family: poppins;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: rgb(183, 208, 171);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar{
+  background-color: #f6f1f1;
+  width: 10px;
+}
+
+
+@font-face {
+  font-family: poppins;
+  src: url("./Assets/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url("./Assets/Montserrat/Montserrat-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: sparkle;
+  src: url("./Assets/sparkle_3/Sparkle.ttf");
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.logo{
+  font-family: poppins;
+  font-weight: 700;
+}
+
+.active{
+  color: #33cca1;
+  /* color: #E9B609; */
+  font-weight: 500;
+}
+
+.link{
+  color: #05010a ;
+}
+
+
+@keyframes ani {
+  from{
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+/* Hover effect three */
+.btnbtn, .btnbtnbtn {
+  overflow: hidden;
+  position: relative;
+  
+  &:before {
+    background: #34CCA1;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 1;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    width: 40px;
+    z-index: 10;
+  }
+}
+
+.btnbtn:hover {
+  &:before {
+    left: 120%;
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  transition: all .5s ease-in;
+  background-color: #05010a;
+  color: #f6f6e5;
+};
+
+.btnbtnbtn:hover {
+
+  color: #05010a;
+  background-color: #f6f6e5;
+  
+  &:before {
+    left: 120%;
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  transition: all .5s ease-in;
+  
+};
+
+
+/* Shadowy border class */
+.shadowy-border {
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Border color with transparency */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Glow effect class */
+.glow {
+  ring: 2px solid rgba(0, 0, 255, 0.5); /* Customize the color and opacity */
+  transition: ring 0.3s ease-in-out; /* Add a transition for smooth glow animation */
+}
+
+.glow:hover {
+  ring: 6px solid rgba(0, 0, 255, 0.5); /* Customize the color and thickness for the hover effect */
+}

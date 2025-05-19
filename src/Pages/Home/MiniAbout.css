@@ -1,0 +1,27 @@
+.mini-about-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bubble {
+    position: absolute;
+    background: radial-gradient(circle, rgba(185, 224, 182, 0.8) 10%, transparent 70%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: bubble-float 5s infinite;
+    z-index: -1;
+  }
+  
+  @keyframes bubble-float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  

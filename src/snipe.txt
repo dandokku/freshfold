@@ -1,0 +1,47 @@
+  App.txt
+
+  const dispatch = useDispatch();
+
+  async function getUser() {
+    const localData = localStorage.getItem("user-jwt");
+    const token = JSON.parse(localData);
+    const config = {
+      headers: {
+        'x-auth-token': token,
+      },
+    };
+  
+    try {
+      const response = await axios.get("http://localhost:9000/api/users/me", config);
+      return response.data;
+    } catch (error) {
+      // Handle the error, e.g., display a message to the user or log it.
+      console.error("Error fetching user:", error);
+      throw error; // Rethrow the error for React Query to handle.
+    }
+  }
+  
+
+  const localUserData = localStorage.getItem("user-jwt");
+
+  const { data } = useQuery("user", getUser, {
+    onSuccess: (success) => console.log(success),
+    onError: (error) => console.log(error),
+    enabled: localUserData ? true : false
+  });
+
+  let user = useSelector((state) => state.user);
+
+  React.useEffect(() => {
+    if (data) {
+      dispatch(setUserLoginDetails(data.data));
+      console.log("user data:", data);
+    }
+  }, [data, dispatch]);
+  
+  const initialState = {
+    data: {
+      _id: null,
+    },
+  };
+  

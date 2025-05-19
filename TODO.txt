@@ -1,0 +1,14 @@
+Fix Responsiveness:
+- Navbar
+- Services
+- Prices
+- Features
+- Profile
+- register page ain't fully responsive
+- Add animations where it's needed
+
+MINI TASKS
+- Change the picture of the Founder in About > Our Team
+- Add arrows to the get it done section
+- update the faq section write-ups
+- update the OUR FEATURES page's writeups

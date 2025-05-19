@@ -1,0 +1,49 @@
+.your-custom-item {
+    width: 300px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #04040A;
+    overflow: hidden;
+    margin: 0 15px 30px;
+    position: relative;
+}
+
+.item-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: #FFF;
+    z-index: 1; 
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+    margin: 10px 0;
+    position: relative;
+    z-index: 2; 
+}
+
+.item-description {
+    color: #ffffff;
+    z-index: 2;  
+}
+
+.your-custom-item::before {
+    content: '';
+    background-color: #34CCA1;
+    border-radius: 50%;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    height: 128px;
+    width: 128px;
+    transform: scale(1);  
+    transition: transform 0.5s ease;
+    z-index: 0;  
+}
+
+.your-custom-item:hover::before {
+    transform: scale(10);
+}
