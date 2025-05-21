@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { MdOutlineClear } from "react-icons/md";
 import { FiCheckCircle } from "react-icons/fi";
@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 export default function Modal({ isOpen, onClose, totalPriceItems, bookingDetails, onSubmit }) {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     // Calculate total price and create item elements
     const totalPrice = totalPriceItems?.reduce((sum, item) => sum + item.totalUnitPrice, 0) || 0;
@@ -22,6 +23,7 @@ export default function Modal({ isOpen, onClose, totalPriceItems, bookingDetails
     ));
 
     const handleVerifyBooking = async () => {
+        setLoading(true);
     try {
         const response = await fetch("http://localhost:9000/api/bookings", {
             method: "POST",
@@ -52,7 +54,9 @@ export default function Modal({ isOpen, onClose, totalPriceItems, bookingDetails
         onClose();
     } catch (err) {
         toast.error("Booking failed: " + err.message);
-    }
+    } finally {
+    setLoading(false);
+  }
 };
 
 
@@ -105,9 +109,10 @@ export default function Modal({ isOpen, onClose, totalPriceItems, bookingDetails
                     <SecondaryButton onClick={onClose}>
                         Back to Edit
                     </SecondaryButton>
-                    <PrimaryButton onClick={handleVerifyBooking}>
-                        Confirm Booking
-                    </PrimaryButton>
+                    <PrimaryButton onClick={handleVerifyBooking} disabled={loading}>
+  {loading ? "Processing..." : "Confirm Booking"}
+</PrimaryButton>
+
                 </ModalFooter>
             </ModalContainer>
         </ModalOverlay>

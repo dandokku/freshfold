@@ -146,7 +146,7 @@ function NavBar() {
           ) : (
             <Link 
               to="/login" 
-              className="px-6 py-2 bg-secondary-600 text-gray-700 rounded-md hover:bg-secondary-700 transition-colors font-medium"
+              className="px-6 py-2 bg-secondary-600 text-gray-700  border border-textColor rounded-md hover:bg-secondaryColor hover:text-whiteColor hover:border-transparent transition-colors font-medium"
             >
               Sign In
             </Link>

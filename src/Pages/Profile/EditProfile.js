@@ -435,6 +435,7 @@ const ProfileContainer = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 2rem 1rem;
+  margin-top: 4rem;
 `;
 
 const ProfileCard = styled.div`

@@ -36,7 +36,6 @@ function MyProfile() {
               <h2 className="mt-6 text-2xl font-semibold text-gray-800">
                 {user.firstName} {user.lastName}
               </h2>
-              <p className="text-gray-500 mt-1">Member since 2023</p>
               
               <Link 
                 to="./editprofile" 
@@ -75,9 +74,6 @@ function MyProfile() {
                     <h4 className="text-sm font-medium text-gray-500">Email Address</h4>
                     <p className="mt-1 text-lg font-semibold text-gray-900">
                       {user.email}
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      Email verified
                     </p>
                   </div>
                 </div>
