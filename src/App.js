@@ -47,7 +47,7 @@ function App() {
     };
   
     try {
-      const response = await axios.get("http://localhost:9000/api/users/me", config);
+      const response = await axios.get("https://freshfoldserver.onrender.com/api/users/me", config);
       return response.data;
     } catch (error) {
       // Handle the error, e.g., display a message to the user or log it.

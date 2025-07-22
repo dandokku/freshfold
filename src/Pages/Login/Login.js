@@ -22,7 +22,7 @@ function Login() {
   async function postUser(fields) {
     setIsSubmitting(true);
     try {
-      const response = await axios.post("http://localhost:9000/api/auth", fields);
+      const response = await axios.post("https://freshfoldserver.onrender.com/api/auth", fields);
       const authToken = response.headers["x-auth-token"];
       localStorage.setItem("user-jwt", JSON.stringify(authToken));
   

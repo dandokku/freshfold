@@ -19,7 +19,7 @@ export default function BookingHistory() {
     ["bookings", user?.id],
     () =>
       axios
-        .get(`http://localhost:9000/api/bookings/user/${user?.id}`)
+        .get(`https://freshfoldserver.onrender.com/api/bookings/user/${user?.id}`)
         .then((res) => res.data),
     {
       enabled: !!user?.id,

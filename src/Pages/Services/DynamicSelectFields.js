@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 
 export default function DynamicSelectFields() {
   function getPrices() {
-    return axios.get("http://localhost:9000/api/prices");
+    return axios.get("https://freshfoldserver.onrender.com/api/prices");
   }
     
   const { data, error, success } = useQuery("prices", getPrices);

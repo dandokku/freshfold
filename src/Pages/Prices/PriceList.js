@@ -15,7 +15,7 @@ const TABS = [
 export default function PriceList() {
   const [activeTab, setActiveTab] = useState(1);
   const { data, isLoading, isError } = useQuery("prices", () =>
-    axios.get("http://localhost:9000/api/prices")
+    axios.get("https://freshfoldserver.onrender.com/api/prices")
   );
 
   const categorizedPrices = useMemo(() => {

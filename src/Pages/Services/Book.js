@@ -22,12 +22,12 @@ function Book() {
 
   // API functions
   function addBookings(booking) {
-    return axios.post("http://localhost:9000/api/bookings/step1", booking);
+    return axios.post("https://freshfoldserver.onrender.com/api/bookings/step1", booking);
   }
 
   async function makeBookings(booking) {
     const response = await axios.post(
-      "http://localhost:9000/api/bookings",
+      "https://freshfoldserver.onrender.com/api/bookings",
       booking
     );
     return response.data;
@@ -47,7 +47,7 @@ function Book() {
 
   // Service data
   function getService(id) {
-    return axios.get(`http://localhost:9000/api/services/${id}`);
+    return axios.get(`https://freshfoldserver.onrender.com/api/services/${id}`);
   }
 
   const { data: serviceData } = useQuery(["service", serviceId], () =>
@@ -57,7 +57,7 @@ function Book() {
 
   // Prices data
   function getPrices() {
-    return axios.get("http://localhost:9000/api/prices");
+    return axios.get("https://freshfoldserver.onrender.com/api/prices");
   }
 
   const { data: pricesData } = useQuery("prices", getPrices, {

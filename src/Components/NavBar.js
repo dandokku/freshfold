@@ -28,7 +28,7 @@ function NavBar() {
       }
     }
 
-    return axios.get("http://localhost:9000/api/users/me", config);
+    return axios.get("https://freshfoldserver.onrender.com/api/users/me", config);
   }
 
   const { data } = useQuery("user", getUser, {

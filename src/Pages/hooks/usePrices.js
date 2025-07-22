@@ -3,6 +3,6 @@ import axios from 'axios';
 
 export const usePrices = () => {
   return useQuery('prices', () =>
-    axios.get('http://localhost:9000/api/prices')
+    axios.get('https://freshfoldserver.onrender.com/api/prices')
   );
 };

@@ -10,7 +10,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 export default function OfferedServices() {
   // Fetch services data
   const { data, isLoading, isError } = useQuery("services", () =>
-    axios.get("http://localhost:9000/api/services")
+    axios.get("https://freshfoldserver.onrender.com/api/services")
   );
 
   // Loading state

@@ -20,7 +20,7 @@ export default function BookingHistoryDetail() {
     // Fetch booking data
     const { data: bookingData, isLoading, isError } = useQuery(
         ["booking-history", bookingId],
-        () => axios.get(`http://localhost:9000/api/bookings/${bookingId}`).then(res => res.data),
+        () => axios.get(`https://freshfoldserver.onrender.com/api/bookings/${bookingId}`).then(res => res.data),
         {
             onError: (err) => console.error(err.message)
         }
@@ -28,7 +28,7 @@ export default function BookingHistoryDetail() {
 
     // Cancel booking mutation
     const { mutate: cancelBookingMutate } = useMutation(
-        (status) => axios.put(`http://localhost:9000/api/bookings/${bookingId}`, status),
+        (status) => axios.put(`https://freshfoldserver.onrender.com/api/bookings/${bookingId}`, status),
         {
             onSuccess: () => {
                 setIsActiveBooking(false);

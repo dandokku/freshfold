@@ -129,7 +129,7 @@ export default function EditProfile() {
       };
 
       const response = await axios.put(
-        `http://localhost:9000/api/users/${user?.id}`,
+        `https://freshfoldserver.onrender.com/api/users/${user?.id}`,
         payload
       );
       return response.data;
