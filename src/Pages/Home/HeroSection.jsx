@@ -54,7 +54,7 @@ function HeroSection() {
 
       {/* Multiple Overlay Layers for Depth */}
       <div className='absolute inset-0 bg-gradient-to-br from-black/60 via-transparent to-black/80'></div>
-      <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30'></div>
+      <div className='absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/90'></div>
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
