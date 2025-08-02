@@ -239,14 +239,14 @@ function Footer() {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4 text-sm text-gray-500">
+              {/* <div className="flex items-center space-x-4 text-sm text-gray-500">
                 <span>Made with</span>
                 <div className="w-4 h-4 bg-red-500 rounded transform rotate-45 relative">
                   <div className="absolute -top-2 -left-1 w-4 h-4 bg-red-500 rounded-full"></div>
                   <div className="absolute -top-2 -right-1 w-4 h-4 bg-red-500 rounded-full"></div>
                 </div>
                 <span>for clean clothes</span>
-              </div>
+              </div> */}
             </div>
             
             {/* Mobile Legal Links */}
