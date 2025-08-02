@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Carousel() {
+function HeroSection() {
   return (
     <div className='relative'>
       {/* Image with Zoom Effect */}
@@ -35,4 +35,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+export default HeroSection;
