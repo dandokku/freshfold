@@ -52,22 +52,6 @@ function Footer() {
             
             {/* Brand Section */}
             <div className="lg:col-span-1 space-y-6">
-              {/* Logo */}
-              <Link to='/' className='group inline-block'>
-                <div className="flex items-center space-x-2">
-                  <span className='text-4xl font-black text-gray-800 flex items-center tracking-tight'>
-                    <span className='text-secondaryColor relative'>
-                      Fresh
-                      <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-secondaryColor to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    </span>
-                    <span className='text-secondaryColor flex items-center ml-1'>
-                      F 
-                      <FaSoap className="mx-1 text-secondaryColor transform group-hover:rotate-12 transition-transform duration-500" size={32} /> 
-                      ld
-                    </span>
-                  </span>
-                </div>
-              </Link>
 
               {/* Tagline */}
               <div className="space-y-4">
