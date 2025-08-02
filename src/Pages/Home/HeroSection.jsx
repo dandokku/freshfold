@@ -202,13 +202,7 @@ function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-2 text-white/60 animate-bounce ${
-        isLoaded ? 'opacity-100' : 'opacity-0'
-      } transition-opacity duration-1000 delay-1500`}>
-        <span className="text-sm font-medium">Scroll to explore</span>
-        <div className="w-px h-8 bg-white/30"></div>
-      </div>
-
+    
       {/* Image Carousel Indicators */}
       <div className="absolute bottom-6 right-6 flex space-x-2">
         {heroImages.map((_, index) => (

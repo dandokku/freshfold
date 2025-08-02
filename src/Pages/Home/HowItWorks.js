@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaTruck, FaWater, FaHandPaper, FaShippingFast, FaArrowRight, FaClock, FaCheckCircle } from 'react-icons/fa';
 import { MdLocalLaundryService } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 function HowItWorks() {
   const [isVisible, setIsVisible] = useState(false);
@@ -231,7 +232,7 @@ function HowItWorks() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button className="group bg-white text-secondaryColor px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 flex items-center space-x-2">
-                <span>Start Your First Order</span>
+                <span><Link to='/services'>Start Your First Order</Link></span>
                 <FaArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               

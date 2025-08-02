@@ -2,8 +2,6 @@ import React from 'react'
 import HeroSection from './HeroSection'
 import MiniAbout from './MiniAbout'
 import HowItWorks from './HowItWorks'
-import HardTime from './HardTime'
-import GetApp from './GetApp'
 import OurPricesMini from './OurPricesMini'
 
 function Home() {
@@ -13,8 +11,6 @@ function Home() {
       <MiniAbout />
       <HowItWorks />
       <OurPricesMini />
-      <HardTime />
-      <GetApp />
     </div>
   )
 }
