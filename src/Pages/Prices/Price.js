@@ -3,7 +3,7 @@ import PriceList from './PriceList'
 
 function Price() {
   return (
-    <div className='pt-20'>
+    <div className='pt-10'>
       <PriceList />
     </div>
   )
