@@ -32,7 +32,7 @@ function OurPricesMini() {
       item: "per shirt",
       service: "Iron and Folding",
       description: "Professional pressing and neat folding",
-      gradient: "from-blue-500 to-indigo-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-blue-50 to-indigo-50"
     },
     {
@@ -41,7 +41,7 @@ function OurPricesMini() {
       item: "per jeans",
       service: "Dry Cleaning",
       description: "Premium fabric care and cleaning",
-      gradient: "from-green-500 to-emerald-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-green-50 to-emerald-50",
       featured: true
     },
@@ -51,7 +51,7 @@ function OurPricesMini() {
       item: "per stain",
       service: "Stain Removal",
       description: "Expert stain treatment and removal",
-      gradient: "from-purple-500 to-pink-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-purple-50 to-pink-50"
     }
   ];
@@ -137,7 +137,7 @@ function OurPricesMini() {
               {/* Featured Badge */}
               {card.featured && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <div className="bg-gradient-to-r from-teal-300 to-cyan-300 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     <div className="flex items-center space-x-1">
                       <MdStar className="w-3 h-3" />
                       <span>Most Popular</span>
@@ -219,7 +219,7 @@ function OurPricesMini() {
                 Get personalized pricing for your specific needs and save more on larger orders
               </p>
               
-              <button className='group inline-flex items-center space-x-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden relative'>
+              <button className='group inline-flex items-center space-x-3 bg-gradient-to-r from-teal-300 to-cyan-300 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden relative'>
                 <span className="relative z-10"><Link to='/prices'>See All Prices</Link></span>
                 <ArrowIcon />
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>

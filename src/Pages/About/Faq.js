@@ -37,31 +37,31 @@ export default function Faq() {
       question: "How does the booking process work?",
       answer: "The booking process is simple and intuitive. Create an account, select your laundry preferences, choose a convenient time slot, and submit your order. Our professional team will handle pickup, cleaning, and delivery with care and precision.",
       icon: MdQuestionAnswer,
-      gradient: "from-blue-500 to-indigo-600"
+      gradient: "from-teal-300 to-cyan-300"
     },
     {
       question: "What are your pickup and delivery hours?",
       answer: "We offer flexible pickup and delivery services from 7 AM to 9 PM, Monday through Sunday. You can schedule your preferred time slot during checkout, and we'll send you confirmation and tracking details.",
       icon: MdSupport,
-      gradient: "from-green-500 to-emerald-600"
+      gradient: "from-teal-300 to-cyan-300"
     },
     {
       question: "How do you handle different fabric types?",
       answer: "Our expert team carefully sorts and treats each fabric type according to industry standards. We use specialized cleaning methods for delicate items, professional dry cleaning for suits, and eco-friendly processes for everyday wear.",
       icon: MdHelpOutline,
-      gradient: "from-purple-500 to-pink-600"
+      gradient: "from-teal-300 to-cyan-300"
     },
     {
       question: "What if I'm not satisfied with the service?",
       answer: "Your satisfaction is our priority. We offer a 100% satisfaction guarantee. If you're not completely happy with our service, we'll re-clean your items free of charge or provide a full refund within 48 hours.",
       icon: MdQuestionAnswer,
-      gradient: "from-orange-500 to-red-600"
+      gradient: "from-teal-300 to-cyan-300"
     },
     {
       question: "Do you offer same-day service?",
       answer: "Yes! We provide same-day service for orders placed before 10 AM (subject to availability). Express service is available for an additional fee, and we guarantee delivery within 8 hours for urgent requests.",
       icon: MdSupport,
-      gradient: "from-teal-500 to-cyan-600"
+      gradient: "from-teal-300 to-cyan-300"
     }
   ];
 
@@ -155,22 +155,22 @@ export default function Faq() {
         }`}>
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6">
-            <MdHelpOutline className="text-blue-600 w-4 h-4" />
-            <span className='font-semibold text-blue-600 text-sm lg:text-base'>
+            <MdHelpOutline className="from-teal-300 to-cyan-300 w-4 h-4" />
+            <span className='font-semibold from-teal-300 to-cyan-300 text-sm lg:text-base'>
               Got Questions?
             </span>
           </div>
 
           <h1 className='font-black text-4xl md:text-5xl lg:text-6xl text-gray-800 leading-tight mb-6'>
-            Frequently Asked <span className="text-blue-600 relative inline-block">
+            Frequently Asked <span className="from-teal-300 to-cyan-300 relative inline-block">
               Questions
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-transparent rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-teal-300 to-cyan-300 to-transparent rounded-full"></div>
             </span>
           </h1>
           
           <p className='text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto'>
             Have questions about our laundry booking service? You're in the right place! 
-            We've compiled answers to help you make the most of your <span className="text-blue-600 font-semibold">laundry experience</span>.
+            We've compiled answers to help you make the most of your <span className="from-teal-300 to-cyan-300 font-semibold">laundry experience</span>.
           </p>
         </div>
 
@@ -288,7 +288,7 @@ export default function Faq() {
 
                 {/* CTA Button */}
                 <div className="text-center pt-4">
-                  <button className='group inline-flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden relative'>
+                  <button className='group inline-flex items-center space-x-3 bg-gradient-to-r from-teal-300 to-cyan-300 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden relative'>
                     <span className="relative z-10">Contact Support</span>
                     <MdSupport className="relative z-10 w-4 h-4" />
                     <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>

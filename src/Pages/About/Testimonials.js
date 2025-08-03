@@ -43,7 +43,7 @@ function Testimonials() {
       role: "Busy Professional",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b1fe?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
-      gradient: "from-purple-500 to-pink-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-purple-50 to-pink-50"
     },
     {
@@ -53,7 +53,7 @@ function Testimonials() {
       role: "Working Parent",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
-      gradient: "from-blue-500 to-indigo-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-blue-50 to-indigo-50"
     },
     {
@@ -63,7 +63,7 @@ function Testimonials() {
       role: "College Student",
       rating: 5,
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
-      gradient: "from-green-500 to-emerald-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-green-50 to-emerald-50"
     }
   ];

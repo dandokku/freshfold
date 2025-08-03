@@ -29,7 +29,7 @@ function WhyChooseUs() {
       icon: MdOutlineCrueltyFree,
       title: "Personalized Experience",
       description: "We take utmost care of your clothes, segregating based on the cloth type and giving you instant clothes to make a statement.",
-      gradient: "from-purple-500 to-pink-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-purple-50 to-pink-50",
       glowColor: "purple-500/30"
     },
@@ -37,7 +37,7 @@ function WhyChooseUs() {
       icon: MdOutlineCheck,
       title: "Premium Quality",
       description: "We use the best in class products to ensure that your favorite clothes are always ready to wear.",
-      gradient: "from-green-500 to-emerald-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-green-50 to-emerald-50",
       glowColor: "green-500/30",
       featured: true
@@ -46,7 +46,7 @@ function WhyChooseUs() {
       icon: MdOutlineMoney,
       title: "Affordable Pricing",
       description: "We offer pricing options that suit your pocket, providing flexibility and affordability.",
-      gradient: "from-blue-500 to-indigo-600",
+      gradient: "from-teal-300 to-cyan-300",
       bgGradient: "from-blue-50 to-indigo-50",
       glowColor: "blue-500/30"
     }
@@ -125,7 +125,7 @@ function WhyChooseUs() {
               {/* Featured Badge */}
               {advantage.featured && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                  <div className="bg-gradient-to-r from-teal-300 to-cyan-300 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                     <div className="flex items-center space-x-1">
                       <MdStar className="w-3 h-3" />
                       <span>Most Valued</span>
@@ -217,7 +217,7 @@ function WhyChooseUs() {
                 <div className="text-gray-600 font-medium">Customer Retention</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-black text-blue-600 mb-2">24/7</div>
+                <div className="text-3xl lg:text-4xl font-black from-teal-300 to-cyan-300 mb-2">24/7</div>
                 <div className="text-gray-600 font-medium">Support Available</div>
               </div>
             </div>
