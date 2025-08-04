@@ -1,5 +1,4 @@
 import React from 'react'
-import OurFeatures from './OurFeatures'
 import OfferedServices from './OfferedServices'
 
 function Services() {
