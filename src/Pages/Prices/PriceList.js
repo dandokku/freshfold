@@ -304,14 +304,7 @@ export default function PriceList() {
                             </h3>
                             
                             {/* Service Features */}
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              <span className="bg-gray-100 group-hover:bg-white/60 text-gray-600 px-3 py-1 rounded-full text-xs lg:text-sm font-medium transition-colors duration-300">
-                                Professional
-                              </span>
-                              <span className="bg-gray-100 group-hover:bg-white/60 text-gray-600 px-3 py-1 rounded-full text-xs lg:text-sm font-medium transition-colors duration-300">
-                                Fast Service
-                              </span>
-                            </div>
+                         
                           </div>
                         </div>
                       </div>
