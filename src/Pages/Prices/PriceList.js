@@ -292,13 +292,13 @@ export default function PriceList() {
                     {/* Content */}
                     <div className="relative z-10 flex items-center justify-between">
                       <div className="flex-1">
-                        <div className="flex items-start space-x-4">
+                        <div className="flex items-center space-x-4">
                           {/* Service Icon */}
                           <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${activeTabData?.gradient} rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                             <MdVerified className="text-white w-6 h-6" />
                           </div>
                           
-                          <div className="flex-1">
+                          <div className="">
                             <h3 className="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-gray-900 transition-colors duration-300 mb-2">
                               {price.name}
                             </h3>
@@ -358,39 +358,7 @@ export default function PriceList() {
         </div>
 
         {/* Enhanced Bottom CTA */}
-        <div className={`text-center mt-20 transform transition-all duration-1000 delay-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}>
-          <div className="bg-white/60 backdrop-blur-md border border-gray-200/50 rounded-3xl p-8 lg:p-12 shadow-xl max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800">
-                  Need a Custom Quote?
-                </h3>
-                <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                  Get personalized pricing for bulk orders or special requirements
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="group inline-flex items-center space-x-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:shadow-teal-500/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 overflow-hidden relative">
-                  <span className="relative z-10">Get Custom Quote</span>
-                  <svg className="relative z-10 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                </button>
-
-                <button className="group inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm border-2 border-gray-200/50 text-gray-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:border-teal-200/50 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                  <span>Contact Support</span>
-                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+     
       </div>
 
       {/* Custom CSS for animations */}
