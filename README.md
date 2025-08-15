@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# FreshFold – Laundry Booking Web Application (Client)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+**FreshFold** is the client-side of a MERN stack laundry booking web application.
+It allows users to browse laundry services, book appointments, manage their profiles, and track booking history.
+This is the **React/Tailwind front-end**, which communicates with a backend API (e.g. [freshfoldserver](https://freshfoldserver.onrender.com)) for authentication, bookings, and pricing data.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+* **React 18** – Component-based UI
+* **React Router v6** – Page routing
+* **Redux Toolkit** – State management
+* **React Query** – Data fetching & caching
+* **Axios** – HTTP requests
+* **Tailwind CSS 3** – Styling
+* **Framer Motion** – Animations
+* **React Toastify** – Notifications
+* **Stripe** – Payment integration
+* **Styled Components** – Scoped styling for specific sections
+* **React Datepicker / React Select** – Form UI components
+* **Swiper** – Sliders for showcasing services
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **User Authentication** – JWT-based login & registration
+* **Service Booking** – Browse services, select a slot, book and pay
+* **Profile Management** – View & edit personal information
+* **Booking History** – Review and track past and upcoming orders
+* **Dynamic Pricing Page** – Service cost breakdown
+* **Contact Form** – Integrated with EmailJS for direct messages
+* **Protected Routes** – Pages accessible only to logged-in users
+* **Responsive Design** – Fully functional on mobile, tablet, and desktop
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository**
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/dandokku/freshfold.git
+   cd freshfold
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Environment variables**
+   Create a `.env` file with:
 
-### `npm run eject`
+   ```env
+   REACT_APP_API_URL=https://freshfoldserver.onrender.com
+   REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Run the development server**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. **Build for production**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm run build
+   ```
 
-## Learn More
+## API Integration
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app expects a backend with endpoints for:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **Auth** – `/api/users/login`, `/api/users/register`, `/api/users/me`
+* **Bookings** – `/api/bookings`
+* **Services & Prices** – `/api/services`, `/api/prices`
 
-### Code Splitting
+JWT is stored in `localStorage` as `"user-jwt"` and sent in the `x-auth-token` header.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Deployment
 
-### Analyzing the Bundle Size
+Can be deployed to **Netlify**, **Vercel**, or similar platforms.
+Make sure the backend is deployed and CORS is configured to allow requests from your frontend domain.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
