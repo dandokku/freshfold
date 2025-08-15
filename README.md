@@ -4,7 +4,7 @@
 
 **FreshFold** is the client-side of a MERN stack laundry booking web application.
 It allows users to browse laundry services, book appointments, manage their profiles, and track booking history.
-This is the **React/Tailwind front-end**, which communicates with a backend API (e.g. [freshfoldserver](https://freshfoldserver.onrender.com)) for authentication, bookings, and pricing data.
+This is the **React/Tailwind front-end**, which communicates with a backend API ([freshfoldserver](https://freshfoldserver.onrender.com)) for authentication, bookings, and pricing data.
 
 ## Tech Stack
 
